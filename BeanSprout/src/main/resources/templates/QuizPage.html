@@ -38,10 +38,18 @@
     console.log("Submitted");
 
     let cardCount = /*[[ ${cardList.size()} ]]*/ 'default value';
+    console.log(cardCount);
 
-    document.getElementById("displayGrade").textContent = "Number of cards: " + cardCount;
 
-    const answerKey = new Map();
+    let answerKey = new Map([
+        /*[# th:each="keyCard, keyCount : ${cardList}"]*/
+            [
+                /*[['card' + ${#strings.toString(keyCount.index + 1)}]]*/, /*[[${keyCard.getAnswer()}]]*/,
+            ],
+        /*[/]*/
+    ]);
+
+    document.getElementById("displayGrade").textContent = "Answer on Test Card: " + answerKey.get("card3");
 
 }
 
