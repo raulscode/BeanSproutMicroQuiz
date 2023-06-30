@@ -16,6 +16,10 @@
 <input id="password" type="password" name="password" />
   </div>
   <input type="submit" value="Submit" />
+    <div th:if="${errorMessage}" style="color: #c43111;">
+        <p>Sorry, this user either does not exist or the username/password is wrong.</p>
+        <p>Please try again.</p>
+    </div>
 </form>
 </body>
 </html>

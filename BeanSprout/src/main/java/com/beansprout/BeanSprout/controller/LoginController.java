@@ -3,6 +3,7 @@ package com.beansprout.BeanSprout.controller;
 import com.beansprout.BeanSprout.model.User;
 import com.beansprout.BeanSprout.repository.UserRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +23,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password)
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model)
     {
         User user = userRepository.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
@@ -32,6 +33,7 @@ public class LoginController {
         else
         {
             System.out.println("This login was unsuccessful.");
+            model.addAttribute("errorMessage", true);
             return "login";
         }
     }

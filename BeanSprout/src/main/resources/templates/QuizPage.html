@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1 th:text="${quizTitle}"></h1>
+<form class="quizForm" id="quizForm">
+
+  <!--loop through all the flashcards associated with quiz-->
+<div class="cardBody" th:each="card, cCount : ${cardList}">
+    <h2 th:text="${card.question}"></h2>
+  <li th:each="answers, aCount : ${card.answerList}">
+      <p th:text="${#strings.toString(cCount.index)}"></p>
+      <ul><input type="radio" th:attr="name='card' + ${#strings.toString(cCount.index + 1)}" th:id="'q'+${#strings.toString(cCount.index + 1)}+'a'+${#strings.toString(aCount.index + 1)}"><label th:text="${answers}"></label></ul>
+  </li>
+
+    <p>Correct Answer:</p>
+    <p th:text="${card.answer}"></p>
+</div>
+
+
+
+<input type="submit" value="Submit Answers">
+</form>
+
+<div id="displayGrade"></div>
+
+</body>
+<script th:inline="javascript">
+
+    document.getElementById("quizForm").addEventListener("submit",getQuizResults);
+
+    function getQuizResults(event) {
+    event.preventDefault();
+    console.log("Submitted");
+
+    let cardCount = /*[[ ${cardList.size()} ]]*/ 'default value';
+
+    document.getElementById("displayGrade").textContent = "Number of cards: " + cardCount;
+
+    const answerKey = new Map();
+
+}
+
+</script>
+</html>

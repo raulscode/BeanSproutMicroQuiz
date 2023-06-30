@@ -1,0 +1,41 @@
+package com.beansprout.BeanSprout.model;
+
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "quizzes")
+public class Quiz {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer quizID;
+    String quizTitle;
+    List<Integer> cardList = new ArrayList<>();
+
+    public Integer getQuizID() {
+        return quizID;
+    }
+
+    public void setQuizID(Integer quizID) {
+        this.quizID = quizID;
+    }
+
+    public String getQuizTitle() {
+        return quizTitle;
+    }
+
+    public void setQuizTitle(String quizTitle) {
+        this.quizTitle = quizTitle;
+    }
+
+    public List<Integer> getCardList() {
+        return cardList;
+    }
+
+    public void setCardList(List<Integer> cardList) {
+        this.cardList = cardList;
+    }
+}
