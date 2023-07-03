@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flash Cards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cardBody">
+<p th:text="${displayQuestion}"></p>
+  <!--
+    <li th:each="answers, aCount : ${card.answerList}">
+        <ul><input type="radio" th:attr="name='card' + ${#strings.toString(cCount.index + 1)}" th:id="'q'+${#strings.toString(cCount.index + 1)}+'a'+${#strings.toString(aCount.index + 1)}"><label th:text="${answers}"></label></ul>
+    </li>
+    -->
+</div>
+
+</body>
+</html>

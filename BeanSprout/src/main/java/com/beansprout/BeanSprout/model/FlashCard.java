@@ -9,13 +9,17 @@ import java.util.List;
 @Table(name = "flashcards")
 public class FlashCard {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Integer cardID;
     String question;
     Integer answer;
+
+    @ElementCollection
+    @CollectionTable(name = "answer_table", joinColumns = @JoinColumn(name = "cardid"))
+    @Column(name="answer_list")
     List<String> answerList = new ArrayList<>();
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getCardID() {
         return cardID;
     }
