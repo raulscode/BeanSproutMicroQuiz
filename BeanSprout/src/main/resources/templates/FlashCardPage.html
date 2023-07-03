@@ -9,11 +9,12 @@
 
 <div class="cardBody">
 <p th:text="${displayQuestion}"></p>
-  <!--
-    <li th:each="answers, aCount : ${card.answerList}">
-        <ul><input type="radio" th:attr="name='card' + ${#strings.toString(cCount.index + 1)}" th:id="'q'+${#strings.toString(cCount.index + 1)}+'a'+${#strings.toString(aCount.index + 1)}"><label th:text="${answers}"></label></ul>
+
+
+    <li th:each="answers: ${answerList}">
+        <ul th:text="${answers}"></ul>
     </li>
-    -->
+
 </div>
 
 </body>

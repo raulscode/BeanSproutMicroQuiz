@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Flash Cards</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+ <form method="POST" th:action="@{/generatecard}">
+   <label for="question">Input your question: </label>
+   <input id="question" type="text" name="question"/>
+   <li>
+     <ul><input type="text" id="option1" name="answerList[0]"></ul>
+     <ul><input type="text" id="option2" name="answerList[1]"></ul>
+     <ul><input type="text" id="option3" name="answerList[2]"></ul>
+     <ul><input type="text" id="option4" name="answerList[3]"></ul>
+   </li>
+
+   <label for="answer">Which is the right answer? Input the number of the correct answer below: </label>
+   <input id="answer" type="number" name="answer" min="1" max="4"/>
+
+   <button type="submit">Submit</button>
+
+ </form>
+
+</body>
+</html>
