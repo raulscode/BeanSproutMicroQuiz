@@ -8,6 +8,8 @@
 <body>
 
  <form method="POST" th:action="@{/generatecard}">
+   <h2 th:text="${quizTitle}"></h2>
+   <h2 th:text="${quizID}"></h2>
    <label for="question">Input your question: </label>
    <input id="question" type="text" name="question"/>
    <li>

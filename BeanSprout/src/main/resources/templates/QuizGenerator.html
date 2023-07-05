@@ -10,8 +10,8 @@
 <h2>Create a new quiz here: </h2>
 
 <form method="POST" th:action="@{/generatequiz}">
-    <p><label for="quizName">What will be the title of your quiz?</label></p>
-    <p><input type="text" id="quizName"/></p>
+    <p><label for="quizTitle">What will be the title of your quiz?</label></p>
+    <p><input type="text" id="quizTitle" name="quizTitle"/></p>
     <input type="submit" value="Start Adding Questions >>>">
 </form>
 </body>

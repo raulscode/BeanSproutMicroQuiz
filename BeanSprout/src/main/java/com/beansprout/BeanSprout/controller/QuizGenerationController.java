@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.beansprout.BeanSprout.model.Quiz;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/")
@@ -24,10 +25,14 @@ public class QuizGenerationController {
     }
 
     @PostMapping("/generatequiz")
-    public String getQuizTitle(Quiz quiz, Model model){
+    public String getQuizTitle(Quiz quiz, Model model, RedirectAttributes redirectAttributes){
 
         quizRepository.save(quiz);
-        return "redirect:/generatequiz";
+
+        redirectAttributes.addFlashAttribute("quizTitle", quiz.getQuizTitle());
+        redirectAttributes.addFlashAttribute("quizID", quiz.getQuizID());
+
+        return "redirect:/generatecard";
 
     }
 
