@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Make a New Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Make a New Quiz</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<script src="QuizGeneratorFunctions.js">
-</script>
+
 <body>
 <h2>Create a new quiz here: </h2>
-<p><label for="questionCountInput">How many questions will your quiz have? (Maximum 20)</label></p>
-<input id="questionCountInput" type="number" min="1" max="20"/>
-<div id="inputContainer" name="inputContainer" class="inputContainer">
-</div>
+
+<form method="POST" th:action="@{/generatequiz}">
+    <p><label for="quizName">What will be the title of your quiz?</label></p>
+    <p><input type="text" id="quizName"/></p>
+    <input type="submit" value="Start Adding Questions >>>">
+</form>
 </body>
 
 </html>
