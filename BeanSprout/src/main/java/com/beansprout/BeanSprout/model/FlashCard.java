@@ -20,6 +20,9 @@ public class FlashCard {
     @Column(name="answer_list")
     List<String> answerList = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "flashCards")
+    private List<Quiz> quizCollect;
+
     public Integer getCardID() {
         return cardID;
     }
@@ -52,5 +55,11 @@ public class FlashCard {
         this.answerList = answerList;
     }
 
+    public List<Quiz> getQuizCollect() {
+        return quizCollect;
+    }
 
+    public void setQuizCollect(List<Quiz> quizCollect) {
+        this.quizCollect = quizCollect;
+    }
 }

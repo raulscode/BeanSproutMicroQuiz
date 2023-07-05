@@ -20,6 +20,11 @@ public class CardGenerationController {
     @GetMapping ("/generatecard")
     public String showFlashCardGenerator(Model model) {
         model.addAttribute("flashcard", new FlashCard());
+
+        //Just test variables
+        String quizName = "Quiz Name";
+        model.addAttribute("quizName", quizName);
+
         return "FlashCardGenerator";
 
     }
@@ -30,6 +35,7 @@ public class CardGenerationController {
         //flashcard.setAnswerList(answerList);
         //flashcard.setAnswer(answer);
         //flashcard.setQuestion(question);
+
         flashCardRepository.save(flashcard);
         return "redirect:/generatecard";
     }

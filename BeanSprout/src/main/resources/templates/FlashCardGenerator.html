@@ -20,6 +20,12 @@
    <label for="answer">Which is the right answer? Input the number of the correct answer below: </label>
    <input id="answer" type="number" name="answer" min="1" max="4"/>
 
+   <label for="quizName"><p>What quiz collection would you like this flashcard question to be part of?</p> <p>(Choose Below: )</p></label>
+   <select name="quizName" id="quizName">
+     <option value="SELECT">SELECT</option>
+     <option th:value="option1" th:text="${quizName}">Text</option>
+   </select>
+
    <button type="submit">Submit</button>
 
  </form>

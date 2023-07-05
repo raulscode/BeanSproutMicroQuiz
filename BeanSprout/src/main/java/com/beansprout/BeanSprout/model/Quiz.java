@@ -13,7 +13,13 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer quizID;
     String quizTitle;
-    List<Integer> cardList = new ArrayList<>();
+    //List<Integer> cardList = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "card_list",
+                joinColumns = @JoinColumn(name = "quizid"),
+                inverseJoinColumns = @JoinColumn(name = "cardid"))
+    private List<FlashCard> flashCards;
 
     public Integer getQuizID() {
         return quizID;
@@ -31,11 +37,20 @@ public class Quiz {
         this.quizTitle = quizTitle;
     }
 
+    public List<FlashCard> getFlashCards() {
+        return flashCards;
+    }
+
+    public void setFlashCards(List<FlashCard> flashCards) {
+        this.flashCards = flashCards;
+    }
+
+    /*
     public List<Integer> getCardList() {
         return cardList;
     }
 
     public void setCardList(List<Integer> cardList) {
         this.cardList = cardList;
-    }
+    } */
 }

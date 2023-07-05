@@ -1,6 +1,7 @@
 package com.beansprout.BeanSprout.controller;
 
 import com.beansprout.BeanSprout.model.FlashCard;
+import com.beansprout.BeanSprout.model.Quiz;
 import com.beansprout.BeanSprout.repository.FlashCardRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,8 +29,16 @@ public class FlashCardPageController {
 
             String question = flashCard.getQuestion();
             List<String> answerList = flashCard.getAnswerList();
+
+           /* List<Quiz> quizList = flashCard.getQuizCollect();
+            Quiz flashQuiz = new Quiz();
+            quizList.add(flashQuiz); */
+
+            String quizName = "Quiz Name";
+
             model.addAttribute("displayQuestion", question);
             model.addAttribute("answerList", answerList);
+            model.addAttribute("quizName", quizName);
 
         }
 
