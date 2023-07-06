@@ -22,6 +22,9 @@ public class CardGenerationController {
     @Autowired
     private FlashCardRepository flashCardRepository;
 
+    @Autowired
+    private QuizRepository quizRepository;
+
     private Quiz quizEntity;
 
 
@@ -35,10 +38,21 @@ public class CardGenerationController {
     }
 
     @PostMapping("/generatecard")
-    public String makeFlashCard(FlashCard flashcard, Model model, @ModelAttribute("quiz") Quiz quiz, RedirectAttributes redirectAttributes)
+    public String makeFlashCard(FlashCard flashcard, RedirectAttributes redirectAttributes)
     {
 
         flashCardRepository.save(flashcard);
+
+        List<FlashCard> flashCardList;
+        if(quizEntity.getFlashCards() == null) {
+            flashCardList = new ArrayList<>();
+        }
+        else{
+            flashCardList = quizEntity.getFlashCards();
+        }
+        flashCardList.add(flashcard);
+        quizEntity.setFlashCards(flashCardList);
+        quizRepository.save(quizEntity);
 
         redirectAttributes.addFlashAttribute("quiz", quizEntity);
 
