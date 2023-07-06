@@ -1,6 +1,7 @@
 package com.beansprout.BeanSprout.controller;
 
 import com.beansprout.BeanSprout.repository.QuizRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,12 +26,11 @@ public class QuizGenerationController {
     }
 
     @PostMapping("/generatequiz")
-    public String getQuizTitle(Quiz quiz, Model model, RedirectAttributes redirectAttributes){
+    public String getQuizTitle(Quiz quiz, RedirectAttributes redirectAttributes){
 
         quizRepository.save(quiz);
 
-        redirectAttributes.addFlashAttribute("quizTitle", quiz.getQuizTitle());
-        redirectAttributes.addFlashAttribute("quizID", quiz.getQuizID());
+        redirectAttributes.addFlashAttribute("quiz", quiz);
 
         return "redirect:/generatecard";
 

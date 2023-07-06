@@ -1,6 +1,7 @@
 package com.beansprout.BeanSprout.model;
 
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,8 +8,8 @@
 <body>
 
  <form method="POST" th:action="@{/generatecard}">
-   <h2 th:text="${quizTitle}"></h2>
-   <h2 th:text="${quizID}"></h2>
+   <h2 th:text="${quiz.quizTitle}"></h2>
+   <h2 th:text="${quiz.quizID}"></h2>
    <label for="question">Input your question: </label>
    <input id="question" type="text" name="question"/>
    <li>
@@ -25,8 +25,10 @@
    <label for="quizName"><p>What quiz collection would you like this flashcard question to be part of?</p> <p>(Choose Below: )</p></label>
    <select name="quizName" id="quizName">
      <option value="SELECT">SELECT</option>
-     <option th:value="option1" th:text="${quizName}">Text</option>
+     <option th:value="option1" th:text="${quiz.quizTitle}">Text</option>
    </select>
+
+   <h2 th:text="${quizName}"></h2>
 
    <button type="submit">Submit</button>
 
