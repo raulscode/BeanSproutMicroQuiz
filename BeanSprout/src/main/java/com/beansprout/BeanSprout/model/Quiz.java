@@ -46,12 +46,5 @@ public class Quiz {
         this.flashCards = flashCards;
     }
 
-    /*
-    public List<Integer> getCardList() {
-        return cardList;
-    }
 
-    public void setCardList(List<Integer> cardList) {
-        this.cardList = cardList;
-    } */
 }

@@ -14,8 +14,12 @@ public class User {
     private Long userID;
     private String username;
     private String password;
-    List<String[]> grades = new ArrayList<>();
-    List<String> roles = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "roleid"))
+    List<Role> roles = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -27,11 +31,11 @@ public class User {
                 '}';
     }
 
-    public List<String> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 
@@ -59,11 +63,4 @@ public class User {
         this.password = password;
     }
 
-    public List<String[]> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(List<String[]> grades) {
-        this.grades = grades;
-    }
 }

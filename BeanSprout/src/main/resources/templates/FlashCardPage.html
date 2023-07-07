@@ -11,9 +11,9 @@
 <p th:text="${displayQuestion}"></p>
 
 
-    <li th:each="answers: ${answerList}">
-        <ul th:text="${answers}"></ul>
-    </li>
+    <ul th:each="answers: ${answerList}">
+        <li th:text="${answers}"></li>
+    </ul>
 
 </div>
 

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.beansprout.BeanSprout.repository.QuizRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -22,7 +24,10 @@ public class QuizPageController {
     @GetMapping("/quiz")
     public String sendData(Model model)
     {
-        Quiz quiz = quizRepository.findById(1).orElse(null);
+        //test id
+        Integer quizID = 5052;
+
+        Quiz quiz = quizRepository.findById(quizID).orElse(null);
 
         if(quiz != null) {
             String quizTitle = quiz.getQuizTitle();
@@ -34,6 +39,17 @@ public class QuizPageController {
         }
 
         return "QuizPage";
+    }
+
+
+    @PostMapping("/quiz")
+    public String sendQuizGrade(RedirectAttributes redirectAttributes){
+
+        Double quizGrade = 0.0;
+
+        redirectAttributes.addFlashAttribute("quizGrade", quizGrade);
+
+        return "/gradepage";
     }
 
 

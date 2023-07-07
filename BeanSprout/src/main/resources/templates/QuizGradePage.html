@@ -16,17 +16,13 @@
 
 <style>
 
-.cardbody {
+.resultBody {
 
     box-shadow: 0px 10px 20px grey;
     max-width: 50%;
     margin: 10px;
+    padding: 10px;
 
-}
-
-.cardbody ul {
-
-    list-style: none;
 }
 
 h1 {
@@ -92,28 +88,19 @@ h1 {
 
 <!--Main area begins-->
 <div class="mainContainer">
-<!--Quiz Body Begins-->
+    <!--Quiz Body Begins-->
 
-<h1 th:text="${quizTitle}"></h1>
-<form class="quizForm" id="quizForm" method="POST" th:action="@{/quiz}">
+    <div class="resultBody">
 
-  <!--loop through all the flashcards associated with quiz-->
-<div class="cardbody" th:each="card, cCount : ${cardList}">
-    <h2 th:text="${card.question}"></h2>
-  <ul th:each="answers, aCount : ${card.answerList}">
-      <li><input type="radio" class="questionSelect" th:attr="name='card' + ${#strings.toString(cCount.index + 1)}" th:id="'q'+${#strings.toString(cCount.index + 1)}+'a'+${#strings.toString(aCount.index + 1)}"><label th:text="'&nbsp' + ${answers}"></label></li>
-  </ul>
+    <p th:text="${quizGrade}"></p>
+
+    </div>
 </div>
-
-    <!--Quiz Body Ends-->
-</div>
-    <!--Main area ends-->
+<!--Main area ends-->
 
 
 <input type="submit" value="Submit Answers">
 </form>
-
-<div id="displayGrade"></div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -121,52 +108,4 @@ h1 {
 
 
 </body>
-<script th:inline="javascript">
-
-    //Listen for the submit event
-    document.getElementById("quizForm").addEventListener("submit",getQuizResults);
-
-    //Function that compares answers to an answer key pulled with Thymeleaf
-    function getQuizResults(event) {
-    event.preventDefault();
-    console.log("Submitted");
-
-    //Grab the amount of questions by looking at the size of the list of "cards" (questions) that make upt he quiz
-    let cardCount = /*[[ ${cardList.size()} ]]*/ 'default value';
-    console.log(cardCount);
-
-    //Get the answer part from each "card" and store in a map. Name the key the same as the question element in the document.
-    let answerKey = new Map([
-        /*[# th:each="keyCard, keyCount : ${cardList}"]*/
-            [
-                /*[['card' + ${#strings.toString(keyCount.index + 1)}]]*/, /*[[${keyCard.getAnswer()}]]*/,
-            ],
-        /*[/]*/
-    ]);
-
-    //Counter for correct answers.
-    let rightAnswerCount = 0;
-
-    //Loop through questions
-    for(let i = 1; i <= cardCount; i++)
-    {
-        //Loop through answers for that question and check if it is right. If so, increment rightAnswerCount.
-        for(let j = 1; j <= 4; j++)
-        {
-        let answerElement = document.getElementById("q"+i+"a"+j);
-            if(answerElement.checked)
-            {
-                if(answerKey.get("card"+i) === j)
-                {
-                    rightAnswerCount++;
-                }
-            }
-        }
-    }
-
-    //Grab the div that will be used to display the grade, then change the inner HTML.
-    document.getElementById("displayGrade").innerHTML = "<p>Correct answers: " + rightAnswerCount + "</p> <p>Grade: " + Math.round((rightAnswerCount/cardCount) * 100) + "%</p>";
-
-}
-</script>
 </html>

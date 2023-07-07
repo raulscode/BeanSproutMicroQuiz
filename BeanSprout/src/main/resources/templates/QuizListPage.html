@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose a Quiz to Get Started</title>
+</head>
+<body>
+<ul th:each="quiz: ${quizList}">
+<li th:text="${quiz.getQuizTitle()}"></li>
+</ul>
+
+</body>
+</html>
