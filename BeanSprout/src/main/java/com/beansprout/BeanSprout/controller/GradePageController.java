@@ -11,6 +11,8 @@ public class GradePageController {
     @GetMapping("/gradepage")
     public String getGradePage(Model model, @ModelAttribute("quizGrade") Double quizGrade) {
 
+
+
         model.addAttribute(quizGrade);
 
         return "QuizGradePage";
