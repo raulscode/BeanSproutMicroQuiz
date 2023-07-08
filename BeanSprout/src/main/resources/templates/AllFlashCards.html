@@ -12,6 +12,30 @@
     <!--Bootstap Stuff Ends-->
     <title>All Flash Cards</title>
 </head>
+<style>
+
+    .questionContainer {
+
+        box-shadow: 0px 0px 5px grey;
+        max-width: 50%;
+        margin: 10px;
+
+    }
+
+    .flashCardListArea ul {
+
+        list-style: none;
+
+    }
+
+    .flashCardListArea a {
+
+        color: black;
+        text-decoration: none;
+
+    }
+
+</style>
 <body>
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -67,8 +91,13 @@
 <div class="flashCardListArea">
     <ul th:each="flashcard: ${flashCardList}">
         <li>
-            <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}" th:text="${flashcard.getQuestion()}"></a>
+            <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}">
+            <div class="questionContainer">
+                <button th:text="${flashcard.getQuestion()}" type="button" class="btn btn-outline-success btn-lg btn-block"></button>
+            </div>
+            </a>
         </li>
+
     </ul>
 </div>
 
