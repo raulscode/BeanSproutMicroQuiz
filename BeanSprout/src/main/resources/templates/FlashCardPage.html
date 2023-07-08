@@ -46,6 +46,10 @@ h1 {
     margin: 10px;
 }
 
+.questionLine {
+    padding: 10px 10px 0 10px;
+}
+
 #displayAnswer {
 
     margin: 10px;
@@ -63,10 +67,7 @@ h1 {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
             </li>
             <!--Quiz DropDown Starts-->
             <li class="nav-item dropdown">
@@ -74,10 +75,10 @@ h1 {
                     Quizzes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="http://localhost:8080/quizlist">See All Quizzes</a>
-                    <a class="dropdown-item" href="http://localhost:8080/generatequiz">Generate a New Quiz</a>
+                    <a class="dropdown-item" href="quizlist">See All Quizzes</a>
+                    <a class="dropdown-item" href="generatequiz">Generate a New Quiz</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="http://localhost:8080/quiz?randomquiz=true">Take a Random Quiz</a>
+                    <a class="dropdown-item" href="quiz?randomquiz=true">Take a Random Quiz</a>
                 </div>
             </li>
             <!--Quiz DropDown Ends-->
@@ -87,14 +88,17 @@ h1 {
                     FlashCards
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="http://localhost:8080/flashcardlist">See All FlashCards</a>
-                    <a class="dropdown-item" href="http://localhost:8080/reviewcards">Review FlashCards</a>
+                    <a class="dropdown-item" href="flashcardlist">See All FlashCards</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="http://localhost:8080/flashcard?randomcard=true">View Random FlashCard</a>
+                    <a class="dropdown-item" href="flashcard?randomcard=true">View Random FlashCard</a>
                 </div>
             </li>
             <!--FlashCard DropDown Ends-->
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
         </ul>
+
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -107,7 +111,7 @@ h1 {
 <div class="cardbody">
 
     <div class="questionArea">
-        <p th:text="${displayQuestion}"></p>
+        <p class="questionLine" th:text="${displayQuestion}"></p>
     </div>
 
     <div id="answerArea">

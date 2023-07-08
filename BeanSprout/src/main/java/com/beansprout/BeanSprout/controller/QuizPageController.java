@@ -30,7 +30,7 @@ public class QuizPageController {
     }
 
     @GetMapping("/quiz")
-    public String sendData(Model model, @RequestParam(value= "quizID", required = false) Integer quizID, @RequestParam(value="randomquiz", required = false) String randomQuiz)
+    public String sendData(Model model, @RequestParam(value= "quizid", required = false) Integer quizID, @RequestParam(value="randomquiz", required = false) String randomQuiz)
     {
 
         //If randomQuiz is true (the user requested a random quiz), give quizID a random value.
@@ -82,7 +82,15 @@ public class QuizPageController {
             questionCount++;
             correctAnswer = card.getAnswer();
             String cardValue = request.getParameter("card" + questionCount);
+
+            //In case user does not answer, cardAnswer would be null, so let's make it a 0 (cannot match any correctAnswer).
+            if(cardValue == null)
+            {
+                cardValue = "0";
+            }
+
             givenAnswer = Integer.parseInt(cardValue);
+
             if(correctAnswer == givenAnswer)
             {
                 correctAnswerCount++;
