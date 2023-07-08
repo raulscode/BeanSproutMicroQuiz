@@ -52,7 +52,7 @@ public class FlashCardPageController {
             Integer answerNumber = flashCard.getAnswer();
             if(answerNumber == null)
             {
-                answerNumber = 0;
+                answerNumber = 1;
             }
             List<String> answerList = flashCard.getAnswerList();
             String answer = answerList.get(answerNumber - 1);
@@ -65,6 +65,7 @@ public class FlashCardPageController {
 
             model.addAttribute("displayQuestion", question);
             model.addAttribute("answer", answer);
+            model.addAttribute("answerList", answerList);
             model.addAttribute("quizName", quizName);
 
         }

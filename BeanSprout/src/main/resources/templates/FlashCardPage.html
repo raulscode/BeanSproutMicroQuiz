@@ -30,6 +30,27 @@ h1 {
  margin: 10px;
 }
 
+.nextRandomFlashCard {
+    margin: 10px;
+}
+
+.answerButtonContainer {
+
+    margin: 10px;
+    padding: 10px 0;
+
+}
+
+.questionArea {
+
+    margin: 10px;
+}
+
+#displayAnswer {
+
+    margin: 10px;
+}
+
 </style>
 <body>
 <!--Navigation Starts-->
@@ -85,25 +106,27 @@ h1 {
 
 <div class="cardbody">
 
-    <div class="questionArea"></div>
-    <p th:text="${displayQuestion}"></p>
+    <div class="questionArea">
+        <p th:text="${displayQuestion}"></p>
+    </div>
 
+    <div id="answerArea">
 
-    <ul th:each="answers: ${answerList}">
-        <li th:text="${answers}"></li>
-    </ul>
+        <ul th:each="answers, aCount: ${answerList}">
+            <li th:text="${aCount.index + 1} + '.' + '&nbsp' + ${answers}"></li>
+         </ul>
 
-    <div id="answerArea"></div>
-
-    <button id="displayAnswer" type="button" class="btn btn-secondary">Display Answer</button>
+        <div id="answerButtonContainer" class="answerButtonContainer">
+            <button id="displayAnswer" type="button" class="btn btn-secondary">Display Answer</button>
+        </div>
 
     </div>
 
-    <div id="nextRandomArea">
 
-        <button type="button" class="btn btn-success">Next Random FlashCard</button>
+</div>
+<div class="nextRandomFlashCard">
 
-    </div>
+    <button type="button" class="btn btn-success" onclick="window.location.href='http://localhost:8080/flashcard?randomcard=true';">Next Random FlashCard</button>
 
 </div>
 
@@ -117,7 +140,7 @@ h1 {
     function showAnswer() {
     let questionAnswer = /*[[${answer}]]*/ '';
     //let questionAnswer = "test string";
-    document.getElementById("answerArea").innerHTML = questionAnswer;
+    document.getElementById("answerButtonContainer").innerHTML = "Answer: " + questionAnswer;
     }
 </script>
 <!-- Bootstrap Scripts -->
