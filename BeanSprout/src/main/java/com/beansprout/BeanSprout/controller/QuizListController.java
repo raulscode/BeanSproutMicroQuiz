@@ -25,7 +25,7 @@ public class QuizListController {
 
         model.addAttribute("quizList", quizList);
 
-        return "QuizListPage";
+        return "AllQuizzes";
 
     }
 

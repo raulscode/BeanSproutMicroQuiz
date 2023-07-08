@@ -1,5 +1,6 @@
 package com.beansprout.BeanSprout.controller;
 
+import com.beansprout.BeanSprout.Service.QuizService;
 import com.beansprout.BeanSprout.model.FlashCard;
 import com.beansprout.BeanSprout.model.Quiz;
 import jakarta.servlet.http.HttpServlet;
@@ -10,27 +11,45 @@ import org.springframework.web.bind.annotation.*;
 import com.beansprout.BeanSprout.repository.QuizRepository;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
+
 
 @Controller
 public class QuizPageController {
 
     private QuizRepository quizRepository;
+    private QuizService quizService;
 
     private Integer quizID;
 
-    public QuizPageController(QuizRepository quizRepository)
+    public QuizPageController(QuizRepository quizRepository, QuizService quizService)
     {
         this.quizRepository = quizRepository;
+        this.quizService = quizService;
     }
 
     @GetMapping("/quiz")
-    public String sendData(Model model)
+    public String sendData(Model model, @RequestParam(value= "quizID", required = false) Integer quizID, @RequestParam(value="randomquiz", required = false) String randomQuiz)
     {
-        //test id
-        quizID = 5253;
+
+        //If randomQuiz is true (the user requested a random quiz), give quizID a random value.
+        if((randomQuiz != null) && (randomQuiz.equals("true")))
+        {
+            List<Quiz> quizzes = quizService.getQuizzes();
+            Random randomNumber = new Random();
+            Integer randomQuizNumber = randomNumber.nextInt(quizzes.size()) + 0;
+            quizID = quizzes.get(randomQuizNumber).getQuizID();
+        }
+
+        //Assign quizID a value if it is null.
+        if(quizID == null)
+        {
+            quizID = 5253;
+        }
+
+        //Pass quizID to class variable.
+        this.quizID = quizID;
 
         Quiz quiz = quizRepository.findById(quizID).orElse(null);
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <!--Bootstap Stuff Starts-->
 <!-- Bootstrap Meta -->
@@ -36,7 +36,7 @@
                 <a class="dropdown-item" href="http://localhost:8080/quizlist">See All Quizzes</a>
                 <a class="dropdown-item" href="http://localhost:8080/generatequiz">Generate a New Quiz</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="http://localhost:8080/quiz">Take a Random Quiz</a>
+                <a class="dropdown-item" href="http://localhost:8080/quiz?randomquiz=true">Take a Random Quiz</a>
               </div>
             </li>
             <!--Quiz DropDown Ends-->
@@ -49,7 +49,7 @@
                     <a class="dropdown-item" href="http://localhost:8080/flashcardlist">See All FlashCards</a>
                     <a class="dropdown-item" href="http://localhost:8080/reviewcards">Review FlashCards</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="http://localhost:8080/flashcard">View Random FlashCard</a>
+                    <a class="dropdown-item" href="http://localhost:8080/flashcard?randomcard=true">View Random FlashCard</a>
                   </div>
             </li>
             <!--FlashCard DropDown Ends-->
