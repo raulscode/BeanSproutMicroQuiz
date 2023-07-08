@@ -29,6 +29,12 @@ h1 {
  margin: 10px;
 }
 
+.listButton {
+
+    margin: 10px;
+
+}
+
 </style>
 
 <body>
@@ -74,9 +80,6 @@ h1 {
                 </div>
             </li>
             <!--FlashCard DropDown Ends-->
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -93,8 +96,8 @@ h1 {
         <p>Your grade is: </p>
     <p th:text="${quizGrade} + '%'"></p>
     </div>
-    <div>
-        <button onclick="window.location.href='http://localhost:8080/quizlist';">Back to List of Quizzes</button>
+    <div class="listButton">
+        <button type="button" class="btn btn-success" onclick="window.location.href='http://localhost:8080/quizlist';">Back to List of Quizzes</button>
     </div>
 </div>
 <!--Main area ends-->

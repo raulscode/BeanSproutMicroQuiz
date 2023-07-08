@@ -70,7 +70,7 @@ public class QuizPageController {
             }
         }
 
-        Double quizGrade = 100 * ((double) correctAnswerCount) / ((double) questionCount);
+        Long quizGrade = Math.round(100 * ((double) correctAnswerCount) / ((double) questionCount));
 
         redirectAttributes.addFlashAttribute("quizGrade", quizGrade);
 

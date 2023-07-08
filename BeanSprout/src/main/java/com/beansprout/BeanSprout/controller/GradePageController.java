@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class GradePageController {
 
     @GetMapping("/gradepage")
-    public String getGradePage(Model model, @ModelAttribute("quizGrade") Double quizGrade) {
+    public String getGradePage(Model model, @ModelAttribute("quizGrade") Long quizGrade) {
 
 
 
