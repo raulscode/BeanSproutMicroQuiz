@@ -9,7 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Integer> {
 
-    //Method to find role by its ID. (Maybe move this to service class.)
-    Role findByRoleId(Integer roleID);
-
 }
