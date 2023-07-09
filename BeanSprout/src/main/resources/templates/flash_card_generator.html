@@ -11,10 +11,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!--Bootstap Stuff Ends-->
   <link rel="stylesheet" href="styles.css">
+  <title>Add a New Question or FlashCard</title>
 </head>
-<styles>
-
-</styles>
 <body>
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -67,29 +65,33 @@
 </nav>
 <!--Navigation Ends-->
 <!--Main Area Begins-->
-
+<div class="mainArea">
+  <h1>Add a New Question</h1>
  <form method="POST" th:action="@{/generatecard}">
    <h2 th:text="${quiz.quizTitle}"></h2>
-   <h2 th:text="${quiz.quizID}"></h2>
+   <p th:text="'This card belongs to quiz #' + ${quiz.quizID}"></p>
    <div class="questionArea">
    <label for="question">Input your question: </label>
-   <input id="question" type="text" name="question"/>
+     <p><input id="question" type="text" name="question"/></p>
    </div>
    <div class="answerArea">
+     <p>Input four possible answers (with one of them correct and the rest false): </p>
    <ul>
-     <li><input type="text" id="option1" name="answerList[0]"></li>
-     <li><input type="text" id="option2" name="answerList[1]"></li>
-     <li><input type="text" id="option3" name="answerList[2]"></li>
-     <li><input type="text" id="option4" name="answerList[3]"></li>
+     <li>#1: <input type="text" id="option1" name="answerList[0]"></li>
+     <li>#2: <input type="text" id="option2" name="answerList[1]"></li>
+     <li>#3: <input type="text" id="option3" name="answerList[2]"></li>
+     <li>#4: <input type="text" id="option4" name="answerList[3]"></li>
    </ul>
    </div>
 
    <label for="answer">Which is the right answer? Input the number of the correct answer below: </label>
-   <input id="answer" type="number" name="answer" min="1" max="4"/>
+   <p><input value="1" id="answer" type="number" name="answer" min="1" max="4"/></p>
 
    <button type="submit">Submit</button>
+   <p><a class="btn btn-primary" th:href="@{/quiz(quizid=${quiz.quizID})}">Done! (View Quiz)</a></p>
 
  </form>
+</div>
 
 <!--Main Area Ends-->
 
