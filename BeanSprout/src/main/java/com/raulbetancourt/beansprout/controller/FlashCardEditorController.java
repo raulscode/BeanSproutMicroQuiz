@@ -41,12 +41,13 @@ public class FlashCardEditorController {
 
     }
 
-    //Grabs the editing in from the page
+    //Grabs the editing input from the page
     @PostMapping("/editflashcard")
     public String editFlashCard(Model model, FlashCard flashCard, @RequestParam(name = "deletecard", required = false) boolean deleteCard, RedirectAttributes redirectAttributes) {
 
         String operationString = "edited";
 
+        //If user checked box to delete card, call the deletion service from the FlashCard service class.
         if(deleteCard)
         {
             try{

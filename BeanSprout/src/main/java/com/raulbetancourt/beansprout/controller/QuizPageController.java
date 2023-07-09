@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 import java.util.Random;
 
-
+//Controller for the page that displays a single quiz.
 @Controller
 public class QuizPageController {
 
@@ -28,20 +28,26 @@ public class QuizPageController {
         this.quizService = quizService;
     }
 
+    //Shows individual quiz page.
+    //Asks for quiz ID as parameter. If there is no quiz ID, it shows a default one.
+    //Asks for "random" flag as optional parameter. If present, then shows a random quiz.
     @GetMapping("/quiz")
     public String sendData(Model model, @RequestParam(value= "quizid", required = false) Integer quizID, @RequestParam(value="randomquiz", required = false) String randomQuiz)
     {
 
-        //If randomQuiz is true (the user requested a random quiz), give quizID a random value.
+        //If randomQuiz is true (the user requested a random quiz), retrieve random quiz, then get the quizID.
         if((randomQuiz != null) && (randomQuiz.equals("true")))
         {
+            //First retrieve quizzes and then choose random one based on array index.
+            //Am avoiding generating random ID based on a range of random numbers because database entity ID numbers
+            //are not always logical/sequential. This avoids accidentally generating an ID that does not exist.
             List<Quiz> quizzes = quizService.getQuizzes();
             Random randomNumber = new Random();
             Integer randomQuizNumber = randomNumber.nextInt(quizzes.size()) + 0;
             quizID = quizzes.get(randomQuizNumber).getQuizID();
         }
 
-        //Assign quizID a value if it is null.
+        //Assign quizID a default value if it is null.
         if(quizID == null)
         {
             quizID = 5253;
@@ -61,10 +67,13 @@ public class QuizPageController {
 
         }
 
-        return "QuizPage";
+        return "quiz_page";
     }
 
 
+    //Request form info, including selected answers
+    //Grade answers
+    //Send grade as flash attribute to grade page controller
     @PostMapping("/quiz")
     public String sendQuizGrade(HttpServletRequest request, RedirectAttributes redirectAttributes){
 
@@ -96,6 +105,7 @@ public class QuizPageController {
             }
         }
 
+        //Make grade into Long, rounded to nearest integer
         Long quizGrade = Math.round(100 * ((double) correctAnswerCount) / ((double) questionCount));
 
         redirectAttributes.addFlashAttribute("quizGrade", quizGrade);

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SuccessPageController {
 
+    //Receives String called "operation" which says whether item was edited or deleted so that
+    //user can see appropriate confirmation.
     @GetMapping("/successpage")
     public String showSuccessPage(Model model, @RequestParam(name = "operation", required = false) String operation) {
 

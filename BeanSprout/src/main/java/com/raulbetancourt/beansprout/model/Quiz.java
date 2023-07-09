@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+//Model for the quiz entity.
 @Entity
 @Table(name = "quizzes")
 public class Quiz {
@@ -14,6 +15,8 @@ public class Quiz {
     String quizTitle;
     //List<Integer> cardList = new ArrayList<>();
 
+    //Establishes relationship with the FlashCard entity.
+    //They have a join table called "card_list" that associates the quizzes' IDs and the flash cards' IDs.
     @ManyToMany
     @JoinTable(name = "card_list",
                 joinColumns = @JoinColumn(name = "quizid"),

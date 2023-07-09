@@ -10,9 +10,33 @@
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--Bootstap Stuff Ends-->
-    <title>All Quizzes</title>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
+<style>
+
+.cardbody {
+
+    box-shadow: 0px 10px 20px grey;
+    max-width: 50%;
+    margin: 10px;
+
+}
+
+.cardbody ul {
+
+    list-style: none;
+}
+
+h1 {
+ margin: 10px;
+}
+
+</style>
+
 <body>
+
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i></i> BeanSprout MicroQuiz</a>
@@ -51,7 +75,7 @@
             </li>
             <!--FlashCard DropDown Ends-->
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="about">About</a>
             </li>
         </ul>
 
@@ -62,23 +86,40 @@
     </div>
 </nav>
 <!--Navigation Ends-->
-<!--Main Area Begins-->
 
-<div class="quizListArea">
-<ul class="quizLinkList" th:each="quiz: ${quizList}">
-    <li>
-        <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}" th:text="${quiz.getQuizTitle()}"></a>
-    </li>
-</ul>
+<!--Main area begins-->
+<div class="mainContainer">
+<!--Quiz Body Begins-->
+
+<h1 th:text="${quizTitle}"></h1>
+<form class="quizForm" id="quizForm" method="POST" th:action="@{/quiz}">
+
+  <!--loop through all the flashcards associated with quiz-->
+<div class="cardbody" th:each="card, cCount : ${cardList}">
+    <h2 th:text="${card.question}"></h2>
+  <ul th:each="answers, aCount : ${card.answerList}">
+      <li><input type="radio" class="questionSelect" th:attr="name='card' + ${#strings.toString(cCount.index + 1)}" th:id="'q'+${#strings.toString(cCount.index + 1)}+'a'+${#strings.toString(aCount.index + 1)}" th:value="${#strings.toString(aCount.index + 1)}"><label th:text="'&nbsp' + ${answers}"></label></li>
+  </ul>
 </div>
 
-<!--Main Area Ends-->
+    <!--Quiz Body Ends-->
 
-<!--Footer Begins-->
-<!--Footer Ends-->
-<!-- Bootstrap Scripts -->
+    <!--Main area ends-->
+
+
+<input type="submit" value="Submit Answers">
+</form>
+</div>
+
+<!-- Only leaving this here in case I want to display grade on page again.
+<div id="displayGrade"></div>
+-->
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 </body>
+
 </html>

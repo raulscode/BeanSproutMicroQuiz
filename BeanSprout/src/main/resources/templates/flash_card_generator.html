@@ -12,12 +12,12 @@
    <h2 th:text="${quiz.quizID}"></h2>
    <label for="question">Input your question: </label>
    <input id="question" type="text" name="question"/>
-   <li>
-     <ul><input type="text" id="option1" name="answerList[0]"></ul>
-     <ul><input type="text" id="option2" name="answerList[1]"></ul>
-     <ul><input type="text" id="option3" name="answerList[2]"></ul>
-     <ul><input type="text" id="option4" name="answerList[3]"></ul>
-   </li>
+   <ul>
+     <li><input type="text" id="option1" name="answerList[0]"></li>
+     <li><input type="text" id="option2" name="answerList[1]"></li>
+     <li><input type="text" id="option3" name="answerList[2]"></li>
+     <li><input type="text" id="option4" name="answerList[3]"></li>
+   </ul>
 
    <label for="answer">Which is the right answer? Input the number of the correct answer below: </label>
    <input id="answer" type="number" name="answer" min="1" max="4"/>

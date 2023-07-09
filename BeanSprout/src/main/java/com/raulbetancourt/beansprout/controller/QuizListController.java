@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+//Controls the page that displays list of all available quizzes.
 @Controller
 public class QuizListController {
 
@@ -18,6 +19,7 @@ public class QuizListController {
         this.quizService = quizService;
     }
 
+    //Grabs list of all quizzes and displays them.
     @GetMapping("/quizlist")
     public String showQuizList(Model model) {
 
@@ -25,7 +27,7 @@ public class QuizListController {
 
         model.addAttribute("quizList", quizList);
 
-        return "AllQuizzes";
+        return "all_quizzes";
 
     }
 

@@ -4,15 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+//Just a controller for the test page
 @Controller
-public class PageController {
+public class TestPageController {
 
-    @GetMapping({"/"})
+    //Grabs an HTML page with a few lines of text.
+    @GetMapping({"/test"})
     public String sendData(Model model)
     {
         String str = "test";
         model.addAttribute("testWord", str);
-        return "FrontPage";
+        return "test_page";
     }
 
 }

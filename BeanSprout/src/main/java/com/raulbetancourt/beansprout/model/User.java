@@ -15,6 +15,8 @@ public class User {
     private String username;
     private String password;
 
+    //Here we establish the many-to-many relationship between users and roles.
+    //This relationship will manifest as a table called "user_role", that associates user ID and role ID.
     @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "userid"),

@@ -36,7 +36,7 @@ public class CardGenerationController {
 
         quizEntity = quiz;
 
-        return "FlashCardGenerator";
+        return "flash_card_generator";
 
     }
 

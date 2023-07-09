@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+//Service class for quiz entity.
 @Service
 public class QuizService {
 
@@ -16,6 +18,7 @@ public class QuizService {
         this.quizRepository = quizRepository;
     }
 
+    //Just a method that fetches all quizzes in the quizzes table.
     public List<Quiz> getQuizzes(){
 
         return (List<Quiz>) quizRepository.findAll();

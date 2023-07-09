@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
+//Controller for the page that displays an individual flash card
 @Controller
 public class FlashCardPageController {
 
@@ -56,10 +57,6 @@ public class FlashCardPageController {
             List<String> answerList = flashCard.getAnswerList();
             String answer = answerList.get(answerNumber - 1);
 
-           /* List<Quiz> quizList = flashCard.getQuizCollect();
-            Quiz flashQuiz = new Quiz();
-            quizList.add(flashQuiz); */
-
             String quizName = "Quiz Name";
 
             model.addAttribute("displayQuestion", question);
@@ -69,7 +66,7 @@ public class FlashCardPageController {
 
         }
 
-        return "FlashCardPage";
+        return "flash_card_page";
     }
 
 
