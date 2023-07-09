@@ -12,6 +12,30 @@
     <!--Bootstap Stuff Ends-->
     <title>All Quizzes</title>
 </head>
+<style>
+
+    .questionContainer {
+
+        box-shadow: 0px 0px 5px grey;
+        max-width: 50%;
+        margin: 10px;
+
+    }
+
+    .quizListArea ul {
+
+        list-style: none;
+
+    }
+
+    .quizListArea a {
+
+        color: black;
+        text-decoration: none;
+
+    }
+
+</style>
 <body>
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -64,12 +88,19 @@
 <!--Navigation Ends-->
 <!--Main Area Begins-->
 
+
+
 <div class="quizListArea">
-<ul class="quizLinkList" th:each="quiz: ${quizList}">
-    <li>
-        <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}" th:text="${quiz.getQuizTitle()}"></a>
-    </li>
-</ul>
+    <ul class="quizLinkList" th:each="quiz: ${quizList}">
+        <li>
+            <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}">
+                <div class="questionContainer">
+                    <button th:text="${quiz.getQuizTitle()}" type="button" class="btn btn-outline-success btn-lg btn-block"></button>
+                </div>
+            </a>
+        </li>
+
+    </ul>
 </div>
 
 <!--Main Area Ends-->
