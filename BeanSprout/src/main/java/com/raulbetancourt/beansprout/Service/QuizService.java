@@ -22,7 +22,7 @@ import java.util.List;
 @Service
 public class QuizService {
 
-    private QuizRepository quizRepository;
+    private final QuizRepository quizRepository;
 
     //Going to use this entity manager for custom query in changeQuizTitle() method.
     @PersistenceContext
@@ -80,7 +80,7 @@ public class QuizService {
 
             if(quizID != null) {
                 connection = DriverManager.getConnection(dburl, user, password);
-                String customQuery = "UPDATE quizzes q SET q.quiz_title = " + "\"" + newQuizTitle + "\"" + " WHERE q.quizid = " + quizID + ";";
+                final String customQuery = "UPDATE quizzes q SET q.quiz_title = " + "\"" + newQuizTitle + "\"" + " WHERE q.quizid = " + quizID + ";";
                 preparedStatement = connection.prepareStatement(customQuery);
                 try {
                     updatedRows = preparedStatement.executeUpdate();

@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class FlashCardService {
 
-    private FlashCardRepository flashCardRepository;
+    private final FlashCardRepository flashCardRepository;
 
     //Including quiz repository because flash card deletion method requires altering relationship with quiz entity.
     private QuizRepository quizRepository;
