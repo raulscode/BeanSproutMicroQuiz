@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!--Bootstap Stuff Starts-->
+  <!-- Bootstrap Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap Stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Font Awesome Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!--Bootstap Stuff Ends-->
+  <link rel="stylesheet" href="/styles.css">
+  <title>Edit Quiz</title>
+</head>
+<body>
+<!--Navigation Starts-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i></i> BeanSprout MicroQuiz</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <!--Quiz DropDown Starts-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Quizzes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="quizlist">See All Quizzes</a>
+          <a class="dropdown-item" href="generatequiz">Generate a New Quiz</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="quiz?randomquiz=true">Take a Random Quiz</a>
+        </div>
+      </li>
+      <!--Quiz DropDown Ends-->
+      <!--FlashCard DropDown Starts-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          FlashCards
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="flashcardlist">See All FlashCards</a>
+          <a class="dropdown-item" href="reviewcards">Review FlashCards</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="flashcard?randomcard=true">View Random FlashCard</a>
+        </div>
+      </li>
+      <!--FlashCard DropDown Ends-->
+      <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!--Navigation Ends-->
+
+<!--Main Area Begins-->
+<form method="POST" th:action="@{/editquiz}">
+  <h2 th:text="'Quiz ID: ' + ${quiz.getQuizID()}"></h2>
+
+  <label for="quizTitle">Change Quiz Title: </label>
+  <p><input id="quizTitle" name="quizTitle" th:value="${quiz.getQuizTitle()}" /></p>
+
+  <ul id="cardlist" th:each="flashcard, cardCount : ${quiz.getFlashCards()}">
+    <li id="card">
+    <p><label for="question">Edit or Input New Question: </label></p>
+    <input id="question" type="text" name="question" th:value="${flashcard.getQuestion()}"/>
+    <ul th:each="answers, answerCount : ${flashcard.getAnswerList()}">
+      <li>
+        <label th:attr="id='option' + ${answerCount.index+1}" th:text="'Question #' + ${answerCount.index+1}"></label>
+        <input th:value="${answers}" type="text" name="answers">
+      </li>
+    </ul>
+      <label>Which is the right answer? Input the number of the correct answer below: </label>
+      <input value = "1" type="number" name="answer" min="1" max="4"/>
+      <input type="checkbox" id="deletecard" name="deletecard" />
+      <label for="deletecard">Just delete this card. (This will delete the card forever, never to be seen again.)</label>
+    </li>
+  </ul>
+
+  <button type="submit">Submit</button>
+
+</form>
+
+
+<!--Main Area Ends-->
+
+<!--Footer Begins-->
+<!--Footer Ends-->
+<!-- Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

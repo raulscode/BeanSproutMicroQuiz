@@ -1,6 +1,6 @@
 
 //Javascript used for displaying grade on page. An experiment in using Thymeleaf with javascript. Only works as on-page script.
-//Can get messy because Thymeleaf basically uses HTML comments to indicate where variables should go in JS script.
+//Can get messy because Thymeleaf basically uses comments to indicate where variables should go in JS script.
 // Formerly on QuizPage.html
 
 //Must start with this attribute in script tag (on-page) to work with ThymeLeaf:

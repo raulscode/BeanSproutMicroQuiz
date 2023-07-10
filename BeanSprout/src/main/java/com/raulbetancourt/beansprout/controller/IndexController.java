@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @GetMapping("/")
+    //Mapped both to root and "home"
+    @GetMapping(value = {"/", "/home"})
     public String indexPage() {
 
         return "index";
