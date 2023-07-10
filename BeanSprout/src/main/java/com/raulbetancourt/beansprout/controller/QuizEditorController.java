@@ -55,6 +55,7 @@ public class QuizEditorController {
         String operation = "edited";
 
         quiz.setQuizID(quizID);
+
         quizRepository.save(quiz);
 
         redirectAttributes.addFlashAttribute(operation);

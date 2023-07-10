@@ -73,15 +73,15 @@
   <p><input id="quizTitle" name="quizTitle" th:value="${quiz.getQuizTitle()}" /></p>
 
   <ul id="cardlist" th:each="flashcard, cardCount : ${quiz.getFlashCards()}">
-    <li id="card">
-    <p><label for="question">Edit or Input New Question: </label></p>
-    <input id="question" type="text" name="question" th:value="${flashcard.getQuestion()}"/>
-    <ul th:each="answers, answerCount : ${flashcard.getAnswerList()}">
-      <li>
-        <label th:attr="id='option' + ${answerCount.index+1}" th:text="'Question #' + ${answerCount.index+1}"></label>
-        <input th:value="${answers}" type="text" name="answers">
-      </li>
-    </ul>
+    <li id="card" name="flashcard">
+      <p><label for="question">Edit or Input New Question: </label></p>
+      <input id="question" type="text" name="question" th:value="${flashcard.getQuestion()}"/>
+      <ul th:each="answers, answerCount : ${flashcard.getAnswerList()}">
+        <li>
+          <label th:attr="id='option' + ${answerCount.index+1}" th:text="'Question #' + ${answerCount.index+1}"></label>
+          <input th:value="${answers}" type="text" name="">
+        </li>
+      </ul>
       <label>Which is the right answer? Input the number of the correct answer below: </label>
       <input value = "1" type="number" name="answer" min="1" max="4"/>
       <input type="checkbox" id="deletecard" name="deletecard" />
