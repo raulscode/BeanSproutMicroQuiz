@@ -35,6 +35,10 @@ public class FlashCard {
     @ManyToMany(mappedBy = "flashCards")
     private List<Quiz> quizCollect;
 
+    public FlashCard() {
+
+    }
+
     public Integer getCardID() {
         return cardID;
     }

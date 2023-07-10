@@ -71,8 +71,8 @@
   <input id="question" type="text" name="question" th:value="${flashcard.getQuestion()}"/>
   <ul th:each="answers, count : ${flashcard.getAnswerList()}">
     <li>
-      <label th:attr="id='option' + ${count.index+1}" th:text="'Question #' + ${count.index+1}"></label>
-      <input th:value="${answers}" type="text" th:attr="id='option' + ${count.index+1}, name='answerList[' + ${count.index} + ']'">
+      <label th:attr="for='option' + ${count.index+1}" th:text="'Question #' + ${count.index+1}"></label>
+      <input th:value="${answers}" type="text" th:attr="id='option' + ${count.index+1}" name="answerList">
     </li>
   </ul>
 

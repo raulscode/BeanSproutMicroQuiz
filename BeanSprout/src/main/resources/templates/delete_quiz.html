@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!--Bootstap Stuff Ends-->
   <link rel="stylesheet" href="/styles.css">
-  <title>Edit Quiz</title>
+  <title>Delete Quiz</title>
 </head>
 <body>
 <!--Navigation Starts-->
@@ -66,32 +66,19 @@
 <!--Navigation Ends-->
 
 <!--Main Area Begins-->
-<form method="POST" th:action="@{/editquiz}">
+<div class="mainArea">
+<form method="POST" th:action="@{/deletequiz}">
   <h2 th:text="'Quiz ID: ' + ${quiz.getQuizID()}"></h2>
 
-  <label for="quizTitle">Change Quiz Title: </label>
-  <p><input id="quizTitle" name="quizTitle" th:value="${quiz.getQuizTitle()}" /></p>
+  <p id="quizTitle" name="quizTitle" th:text="${quiz.getQuizTitle()}"></p>
 
-  <ul id="cardlist" th:each="flashcard, cardCount : ${quiz.getFlashCards()}">
-    <li id="card" name="flashcard">
-      <p><label for="question">Edit or Input New Question: </label></p>
-      <input id="question" type="text" name="question" th:value="${flashcard.getQuestion()}"/>
-      <ul th:each="answers, answerCount : ${flashcard.getAnswerList()}">
-        <li>
-          <label th:attr="id='option' + ${answerCount.index+1}" th:text="'Question #' + ${answerCount.index+1}"></label>
-          <input th:value="${answers}" type="text" name="">
-        </li>
-      </ul>
-      <label>Which is the right answer? Input the number of the correct answer below: </label>
-      <input value = "1" type="number" name="answer" min="1" max="4"/>
-      <input type="checkbox" id="deletecard" name="deletecard" />
-      <label for="deletecard">Just delete this card. (This will delete the card forever, never to be seen again.)</label>
-    </li>
-  </ul>
+<p>Are you sure you would like to delete this quiz?</p>
+<p>(The associated flashcards will still exist, but will be orphan cards with no parent quiz.)</p>
 
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-danger">Delete</button>
 
 </form>
+</div>
 
 
 <!--Main Area Ends-->

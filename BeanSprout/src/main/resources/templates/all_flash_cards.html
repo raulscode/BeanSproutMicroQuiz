@@ -91,11 +91,18 @@
 <div class="flashCardListArea">
     <ul th:each="flashcard: ${flashCardList}">
         <li>
-            <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}">
+
             <div class="questionContainer">
+                <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}">
                 <button th:text="${flashcard.getQuestion()}" type="button" class="btn btn-outline-success btn-lg btn-block"></button>
+                </a>
+                <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}">
+                    <button type="button" class="btn btn-success btn-lg btn-block">View Flash Card</button>
+                </a>
+                <a th:href="@{/editflashcard(cardid=${flashcard.getCardID()})}">
+                    <button type="button" class="btn btn-warning btn-lg btn-block">Edit Card</button>
+                </a>
             </div>
-            </a>
         </li>
 
     </ul>

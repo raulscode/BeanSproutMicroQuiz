@@ -14,7 +14,7 @@
 </head>
 <style>
 
-    .questionContainer {
+    .quizTitleContainer {
 
         box-shadow: 0px 0px 5px grey;
         max-width: 50%;
@@ -93,9 +93,16 @@
 <div class="quizListArea">
     <ul class="quizLinkList" th:each="quiz: ${quizList}">
         <li>
-            <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}">
-                <div class="questionContainer">
+                <div class="quizTitleContainer">
+                    <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}">
                     <button th:text="${quiz.getQuizTitle()}" type="button" class="btn btn-outline-success btn-lg btn-block"></button>
+                    </a>
+                    <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}">
+                        <button type="button" class="btn btn-success btn-lg btn-block">View Quiz</button>
+                    </a>
+                    <a th:href="@{/deletequiz(quizid=${quiz.getQuizID()})}">
+                    <button type="button" class="btn btn-warning btn-lg btn-block">Delete Quiz</button>
+                    </a>
                 </div>
             </a>
         </li>

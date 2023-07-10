@@ -45,13 +45,17 @@ public class FlashCardEditorController {
     @PostMapping("/editflashcard")
     public String editFlashCard(Model model, FlashCard flashCard, @RequestParam(name = "deletecard", required = false) boolean deleteCard, RedirectAttributes redirectAttributes) {
 
+        //These will be passed to the success page to make its message more specific about what type of entity
+        //and what operation was performed on it.
         String operationString = "edited";
+        String entityString = "card";
 
         //If user checked box to delete card, call the deletion service from the FlashCard service class.
         if(deleteCard)
         {
             try{
                 flashCardService.deleteFlashCardById(cardID);
+                //Change operation type to "deleted" so that it can show on the success page.
                 operationString = "deleted";
             }
             catch (Exception e)
@@ -70,6 +74,7 @@ public class FlashCardEditorController {
         }
 
         redirectAttributes.addFlashAttribute("operation",operationString);
+        redirectAttributes.addFlashAttribute("entitytype",entityString);
         return "redirect:/successpage";
 
     }
