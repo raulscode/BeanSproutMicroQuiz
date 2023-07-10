@@ -32,7 +32,7 @@ public class QuizPageController {
     //Asks for quiz ID as parameter. If there is no quiz ID, it shows a default one.
     //Asks for "random" flag as optional parameter. If present, then shows a random quiz.
     @GetMapping("/quiz")
-    public String sendData(Model model, @RequestParam(value= "quizid", required = false) Integer quizID, @RequestParam(value="randomquiz", required = false) String randomQuiz)
+    public String getQuizData(Model model, @RequestParam(value= "quizid", required = false) Integer quizID, @RequestParam(value="randomquiz", required = false) String randomQuiz)
     {
 
         //If randomQuiz is true (the user requested a random quiz), retrieve random quiz, then get the quizID.
