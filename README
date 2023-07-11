@@ -1,0 +1,33 @@
+<!--BeanSprout MicroQuiz-->
+
+--Introduction--
+
+This project is a full stack web app that can display and generate quizzes and flash cards according to user input (which are all saved in a database). It is inspired by my experiences with various flash card systems, which helped me learn and memorize more easily, with discrete and digestable content.
+
+On a technical level, one of my aims with this project was to learn more about Spring Boot, while also trying out a few different methods for managing entities directly and indirectly with a SQL server.
+
+As far as the title of the project goes, it is tentative. While diving heavily into SpringBoot for the first time and getting used to all the bean terminology, I suddenly couldn't stop thinking about beans. I subconsciously started eating more beans. I even planted a small garbanzo garden on our balcony. Naturally, I decided to call this project BeanSprout, as it evokes the metaphor of growing your knowledge with one small seedling at a time.
+
+--Overview--
+This project is a Spring Boot project that used the Spring Initializr, with necessary dependencies added at that time.
+
+It has two primary entities that interact with the user: a Quiz entity and a FlashCard entity. These entities have a relationship, where a Quiz is essentially just a collection of flash card questions.
+
+All flash cards are multiple choice. They have 1 question (the "front"), stores as a String, and a list of multiple-choice possible answers, stores as an ArrayList of Strings. They also have a parameter called "answer", which is an integer that indicates which of the answers is the correct one. Each card also has an id which does not change.
+
+Quizzes have an id, a title, and an ArrayList of FlashCard entities, which is used to manage their relationship to the flash cards.
+
+Using the app, the user can:
+
+	- View a list of all quizzes
+	- View a list of all flash cards
+	- View quiz contents and take the quiz
+	- View individual flash card questions
+	- Generate a new quiz
+	- Generate flash cards for that quiz
+	- Edit flash cards
+	- Edit quiz titles
+	- Delete quizzes (without deleting corresponding flash cards)
+	- Delete individual flash cards
+
+All of this is saved in a MySql database, mostly managed through entities in Spring Boot, though there are some manually-written custom queries (such as the one to simply change a quiz title).

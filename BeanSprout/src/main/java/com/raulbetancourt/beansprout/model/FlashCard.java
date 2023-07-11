@@ -78,4 +78,5 @@ public class FlashCard {
     public void setQuizCollect(List<Quiz> quizCollect) {
         this.quizCollect = quizCollect;
     }
+
 }

@@ -63,7 +63,6 @@ public class QuizService {
     }
 
     //Method that changes quiz title with a custom query the old-fashioned way.
-    @Transactional
     public boolean changeQuizTitle(Integer quizID, String newQuizTitle){
 
         boolean success = false;

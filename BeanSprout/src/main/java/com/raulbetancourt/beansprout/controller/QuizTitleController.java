@@ -24,7 +24,7 @@ public class QuizTitleController {
     }
 
     @GetMapping("/editquiztitle")
-    public String showQuizTitle(Model model, @RequestParam(value="quizid", required = false) Integer quizID){
+    public String showQuizTitle(Model model, @RequestParam(value="quizid", required = false) Integer quizID, RedirectAttributes redirectAttributes){
 
         if(quizID == null)
         {

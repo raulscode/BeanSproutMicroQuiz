@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-//The controller class for the flashcard editing page
+import java.util.List;
+
+//The controller class for the flashcard editing and deleting functions.
 @Controller
 public class FlashCardEditorController {
 
@@ -78,5 +80,6 @@ public class FlashCardEditorController {
         return "redirect:/successpage";
 
     }
+
 
 }

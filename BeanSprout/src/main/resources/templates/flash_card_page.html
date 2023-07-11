@@ -131,7 +131,20 @@ h1 {
 </div>
 <div class="nextRandomFlashCard">
 
-    <button type="button" class="btn btn-success" onclick="window.location.href='http://localhost:8080/flashcard?randomcard=true';">Next Random FlashCard</button>
+    <!-- Experimental rating system
+    <form method="POST" th:action="@{/ratecard}">
+    <p>Rate This Card:
+    <label><input name="rate" type="radio" value="1" />1⭐ </label>
+    <label><input name="rate" type="radio" value="2"/>2⭐ </label>
+    <label><input name="rate" type="radio" value="3"/>3⭐ </label>
+    <label><input name="rate" type="radio" value="4"/>4⭐ </label>
+    <label><input name="rate" type="radio" value="5"/>5⭐</label>
+        <input type="submit" value="Rate Card"/>
+        <p>(Current rating: <span th:text="${totalRating/rateCount}"> </span>⭐)</p>
+    </p>
+    </form>
+    -->
+    <button type="button" class="btn btn-success" onclick="window.location.href='/flashcard?randomcard=true';">Next Random FlashCard</button>
 
 </div>
 

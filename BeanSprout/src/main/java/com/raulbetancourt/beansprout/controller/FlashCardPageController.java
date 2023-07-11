@@ -3,9 +3,11 @@ package com.raulbetancourt.beansprout.controller;
 import com.raulbetancourt.beansprout.Service.FlashCardService;
 import com.raulbetancourt.beansprout.model.FlashCard;
 import com.raulbetancourt.beansprout.repository.FlashCardRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Random;
@@ -17,6 +19,8 @@ public class FlashCardPageController {
 
     private FlashCardRepository flashCardRepository;
     private FlashCardService flashCardService;
+
+    Integer cardID;
 
     public FlashCardPageController(FlashCardRepository flashCardRepository, FlashCardService flashCardService)
     {
@@ -44,6 +48,8 @@ public class FlashCardPageController {
             cardID = 1;
         }
 
+        this.cardID = cardID;
+
         FlashCard flashCard = flashCardRepository.findById(cardID).orElse(null);
 
         if(flashCard != null) {
@@ -57,18 +63,14 @@ public class FlashCardPageController {
             List<String> answerList = flashCard.getAnswerList();
             String answer = answerList.get(answerNumber - 1);
 
-            String quizName = "Quiz Name";
-
             model.addAttribute("displayQuestion", question);
             model.addAttribute("answer", answer);
             model.addAttribute("answerList", answerList);
-            model.addAttribute("quizName", quizName);
 
         }
 
         return "flash_card_page";
     }
-
 
 
 

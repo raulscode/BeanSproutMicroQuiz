@@ -8,6 +8,11 @@ class BeanSproutApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+		TestEntities testEntities = new TestEntities();
+
+		testEntities.createTestEntities();
+
 	}
 
 }

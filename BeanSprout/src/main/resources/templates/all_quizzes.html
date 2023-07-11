@@ -100,6 +100,9 @@
                     <a th:href="@{/quiz(quizid=${quiz.getQuizID()})}">
                         <button type="button" class="btn btn-success btn-lg btn-block">View Quiz</button>
                     </a>
+                    <a th:href="@{/editquiztitle(quizid=${quiz.getQuizID()})}">
+                        <button type="button" class="btn btn-info btn-lg btn-block">Change Quiz Title</button>
+                    </a>
                     <a th:href="@{/deletequiz(quizid=${quiz.getQuizID()})}">
                     <button type="button" class="btn btn-warning btn-lg btn-block">Delete Quiz</button>
                     </a>
