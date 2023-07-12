@@ -20,8 +20,7 @@ import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class BeanSproutApplicationTests {
@@ -66,30 +65,38 @@ class BeanSproutApplicationTests {
 
 		assertEquals(2, flashCardRepository.findByCardID(cardID).getAnswer());
 
+		//Test user repository
 		User user = new User();
-		if(userRepository.findByUsername("Gary") == null) {
+		if(userRepository.findByUsername("Larry") == null) {
 
-			user.setUserName("Gary");
+			user.setUserName("Larry");
 		}
 
-		//Test user repository
 		userRepository.save(user);
 
 		Long userID = user.getUserID();
 
-		assertEquals(userID, userRepository.findByUsername("Gary").getUserID());
+		assertEquals(userID, userRepository.findByUsername("Larry").getUserID());
 
 		//Test role repository
 		Role role = new Role();
-		if(roleRepository.findByRoleName("Example4") == null) {
+		if(roleRepository.findByRoleName("Example7") == null) {
 
-			role.setRoleName("Example4");
+			role.setRoleName("Example7");
 		}
 		roleRepository.save(role);
 
 		Integer roleID = role.getRoleID();
 
-		assertEquals(roleID, roleRepository.findByRoleName("Example4").getRoleID());
+		assertEquals(roleID, roleRepository.findByRoleName("Example7").getRoleID());
+
+		//List<Role> rolesList = new ArrayList<>();
+		//rolesList.add(role);
+
+		//user.setRoles(rolesList);
+		//userRepository.save(user);
+
+		//assertSame(user.getRoles(), roleRepository.findRoleByUser(user.getUserID()));
 
 		//Test flashcard service class
 		List<String> stringList = new ArrayList<>();
