@@ -5,6 +5,7 @@ import jakarta.validation.Payload;
 
 import java.lang.annotation.*;
 
+//Field matching parameters to be used by FieldMatch validator.
 @Constraint(validatedBy = FieldMatchValidator.class)
 @Target({ ElementType.TYPE, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
@@ -12,8 +13,11 @@ import java.lang.annotation.*;
 public @interface FieldMatch {
 
     String message() default "";
+
+    /*
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
+     */
 
     String first();
 
