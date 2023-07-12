@@ -35,6 +35,20 @@
 
     }
 
+    #questionButton {
+
+    white-space: normal;
+    word-wrap: break-word;
+
+    }
+
+    div {
+
+    white-space: normal;
+    word-wrap: break-word;
+
+    }
+
 </style>
 <body>
 <!--Navigation Starts-->
@@ -94,7 +108,7 @@
 
             <div class="questionContainer">
                 <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}">
-                <button th:text="${flashcard.getQuestion()}" type="button" class="btn btn-outline-success btn-lg btn-block"></button>
+                <button id="questionButton" th:text="${flashcard.getQuestion()}" type="button" class="btn btn-outline-success btn-lg btn-block"></button>
                 </a>
                 <a th:href="@{/flashcard(cardid=${flashcard.getCardID()})}">
                     <button type="button" class="btn btn-success btn-lg btn-block">View Flash Card</button>

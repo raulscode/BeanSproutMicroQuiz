@@ -35,9 +35,10 @@ public class LoadTestCardsController {
     public String loadExamples(Model model, RedirectAttributes redirectAttributes){
 
         String operation = "loaded";
-        String entityType = "examples";
+        String entityType = "example";
 
-        redirectAttributes.addFlashAttribute(operation, entityType);
+        redirectAttributes.addFlashAttribute("operation",operation);
+        redirectAttributes.addFlashAttribute("entitytype",entityType);
 
         quizService.createExampleModels();
 

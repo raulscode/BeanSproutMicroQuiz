@@ -378,7 +378,7 @@ public class QuizService {
         //Topic: Javascript facts
 
 
-        question = "1. JavaScript is a high-level, interpreted programming language.";
+        question = "JavaScript is a high-level, interpreted programming language.";
         answerList1.add(0, "True");
         answerList1.add(1, "False");
         answerList1.add(2, "Sometimes");
@@ -388,7 +388,7 @@ public class QuizService {
             flashCard1.setQuestion(question);
             flashCard1.setAnswer(answer);
 
-        question = "2. JavaScript is primarily used for client-side web development.";
+        question = "JavaScript is primarily used for client-side web development.";
         answerList2.add(0, "True");
         answerList2.add(1, "False");
         answerList2.add(2, "Not sure");
@@ -398,7 +398,7 @@ public class QuizService {
             flashCard2.setQuestion(question);
             flashCard2.setAnswer(answer);
 
-        question = "3. JavaScript was created by Brendan Eich in 1995.";
+        question = "JavaScript was created by Brendan Eich in 1995.";
         answerList3.add(0, "True");
         answerList3.add(1, "False");
         answerList3.add(2, "I don't know");
@@ -408,7 +408,7 @@ public class QuizService {
             flashCard3.setQuestion(question);
             flashCard3.setAnswer(answer);
 
-        question = "4. JavaScript can be used on both the front-end and back-end of web development.";
+        question = "JavaScript can be used on both the front-end and back-end of web development.";
         answerList4.add(0, "True");
         answerList4.add(1, "False");
         answerList4.add(2, "Maybe");
@@ -418,7 +418,7 @@ public class QuizService {
             flashCard4.setQuestion(question);
             flashCard4.setAnswer(answer);
 
-        question = "5. JavaScript supports object-oriented programming principles.";
+        question = "JavaScript supports object-oriented programming principles.";
         answerList5.add(0, "True");
         answerList5.add(1, "False");
         answerList5.add(2, "I'm not certain");
@@ -434,7 +434,7 @@ public class QuizService {
         //Contents for flash cards 16 - 20.
         //Topic: Cat facts
 
-        question = "1. Which of the following is the scientific name for the house cat?";
+        question = "Which of the following is the scientific name for the house cat?";
         answerList1.add(0, "Felis silvestris catus");
         answerList1.add(1, "Felis domesticus");
         answerList1.add(2, "Felis catus");
@@ -444,7 +444,7 @@ public class QuizService {
                 flashCard1.setQuestion(question);
                 flashCard1.setAnswer(answer);
 
-        question = "2. How many toes does the average house cat have?";
+        question = "How many toes does the average house cat have?";
         answerList2.add(0, "16");
         answerList2.add(1, "18");
         answerList2.add(2, "20");
@@ -454,7 +454,7 @@ public class QuizService {
                 flashCard2.setQuestion(question);
                 flashCard2.setAnswer(answer);
 
-        question = "3. What is the average lifespan of a house cat?";
+        question = "What is the average lifespan of a house cat?";
         answerList3.add(0, "8-10 years");
         answerList3.add(1, "10-12 years");
         answerList3.add(2, "12-15 years");
@@ -464,7 +464,7 @@ public class QuizService {
                 flashCard3.setQuestion(question);
                 flashCard3.setAnswer(answer);
 
-        question = "4. Which of the following is NOT a recognized cat breed?";
+        question = "Which of the following is NOT a recognized cat breed?";
         answerList4.add(0, "Siamese");
         answerList4.add(1, "Persian");
         answerList4.add(2, "Maine Coon");
@@ -474,7 +474,7 @@ public class QuizService {
                 flashCard4.setQuestion(question);
                 flashCard4.setAnswer(answer);
 
-        question = "5. What is the typical body temperature range for a healthy cat?";
+        question = "What is the typical body temperature range for a healthy cat?";
         answerList5.add(0, "35-37°C (95-99°F)");
         answerList5.add(1, "38-40°C (100-104°F)");
         answerList5.add(2, "41-43°C (106-109°F)");
@@ -490,7 +490,7 @@ public class QuizService {
         //Populating flash cards 20 - 25.
         //Topic: Outer space
 
-        question = "1. Which planet in our solar system is known for its prominent rings?";
+        question = "Which planet in our solar system is known for its prominent rings?";
         answerList1.add(0, "Mars");
         answerList1.add(1, "Jupiter");
         answerList1.add(2, "Saturn");
@@ -500,7 +500,7 @@ public class QuizService {
              flashCard1.setQuestion(question);
              flashCard1.setAnswer(answer);
 
-        question = "2. What is the largest moon in our solar system?";
+        question = "What is the largest moon in our solar system?";
         answerList2.add(0, "Europa");
         answerList2.add(1, "Titan");
         answerList2.add(2, "Ganymede");
@@ -510,7 +510,7 @@ public class QuizService {
              flashCard2.setQuestion(question);
              flashCard2.setAnswer(answer);
 
-        question = "3. What is the name of the closest star to our solar system?";
+        question = "What is the name of the closest star to our solar system?";
         answerList3.add(0, "Proxima Centauri");
         answerList3.add(1, "Sirius");
         answerList3.add(2, "Alpha Centauri");
@@ -520,7 +520,7 @@ public class QuizService {
              flashCard3.setQuestion(question);
              flashCard3.setAnswer(answer);
 
-        question = "4. What is a celestial event where the Moon passes between the Earth and the Sun?";
+        question = "What is a celestial event where the Moon passes between the Earth and the Sun?";
         answerList4.add(0, "Lunar eclipse");
         answerList4.add(1, "Solar eclipse");
         answerList4.add(2, "Asteroid collision");
@@ -530,7 +530,7 @@ public class QuizService {
              flashCard4.setQuestion(question);
              flashCard4.setAnswer(answer);
 
-        question = "5. Which of the following is NOT a type of galaxy?";
+        question = "Which of the following is NOT a type of galaxy?";
         answerList5.add(0, "Spiral");
         answerList5.add(1, "Elliptical");
         answerList5.add(2, "Irregular");
