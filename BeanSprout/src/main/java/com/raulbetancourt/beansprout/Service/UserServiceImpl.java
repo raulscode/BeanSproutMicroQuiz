@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    //Map roles to "authorities"
+    //Map roles to authorities
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getRoleName())).collect(Collectors.toList());
@@ -69,8 +69,10 @@ public class UserServiceImpl implements UserService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         User user = modelMapper.map(userDTO, User.class);
+
         //Set role for user
         user.setRoles(Arrays.asList(roleService.findRoleByRoleName("ROLE_USER")));
+        user.setPassword(encryption.encode(user.getPassword()));
 
         userRepository.save(user);
 
