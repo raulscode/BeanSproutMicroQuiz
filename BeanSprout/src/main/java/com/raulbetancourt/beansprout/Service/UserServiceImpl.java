@@ -1,6 +1,7 @@
 package com.raulbetancourt.beansprout.Service;
 
 import com.raulbetancourt.beansprout.configuration.UserDetailHandler;
+import com.raulbetancourt.beansprout.dataservice.UserDTO;
 import com.raulbetancourt.beansprout.model.Role;
 import com.raulbetancourt.beansprout.repository.UserRepository;
 import org.modelmapper.ModelMapper;

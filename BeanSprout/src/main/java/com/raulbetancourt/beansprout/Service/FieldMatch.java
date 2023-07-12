@@ -15,8 +15,10 @@ public @interface FieldMatch {
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
-    String stringOne();
-    String stringTwo();
+    String first();
+
+    String second();
+
     @Target( { ElementType.TYPE, ElementType.ANNOTATION_TYPE} )
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
