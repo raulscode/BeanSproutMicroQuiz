@@ -186,7 +186,23 @@ public class QuizService {
         quiz2.setFlashCards(getExampleContents(2));
         quizRepository.save(quiz2);
 
+        Quiz quiz3 = new Quiz();
+        quizTitle = "Javascript Facts";
+        quiz3.setQuizTitle(quizTitle);
+        quiz3.setFlashCards(getExampleContents(3));
+        quizRepository.save(quiz3);
 
+        Quiz quiz4 = new Quiz();
+        quizTitle = "Cat Facts";
+        quiz4.setQuizTitle(quizTitle);
+        quiz4.setFlashCards(getExampleContents(4));
+        quizRepository.save(quiz4);
+
+        Quiz quiz5 = new Quiz();
+        quizTitle = "Outer Space Quiz";
+        quiz5.setQuizTitle(quizTitle);
+        quiz5.setFlashCards(getExampleContents(5));
+        quizRepository.save(quiz5);
 
 
 
@@ -206,13 +222,6 @@ public class QuizService {
         FlashCard flashCard;
 
         List<FlashCard> flashCardList = new ArrayList<>();
-
-        /*
-        for(int i = 0; i < 5; i++) {
-            flashCard = new FlashCard();
-            flashCardList.add(flashCard);
-        }
-         */
 
         FlashCard flashCard1 = new FlashCard();
         FlashCard flashCard2 = new FlashCard();
@@ -363,228 +372,175 @@ public class QuizService {
 
             break;
 
-        /*
 
+        case 3:
         //Contents for flash cards 10 - 15.
         //Topic: Javascript facts
 
-        quizList.get(2).setQuizTitle("Javascript");
 
         question = "1. JavaScript is a high-level, interpreted programming language.";
-        answerList.set(0, "True");
-        answerList.set(1, "False");
-        answerList.set(2, "Sometimes");
-        answerList.set(3, "Depends on the context");
+        answerList1.add(0, "True");
+        answerList1.add(1, "False");
+        answerList1.add(2, "Sometimes");
+        answerList1.add(3, "Depends on the context");
         answer = 1;
 
-        flashCardLists.get(2).get(0).setQuestion(question);
-        flashCardLists.get(2).get(0).setAnswerList(answerList);
-        flashCardLists.get(2).get(0).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(2).get(0));
+            flashCard1.setQuestion(question);
+            flashCard1.setAnswer(answer);
 
         question = "2. JavaScript is primarily used for client-side web development.";
-        answerList.set(0, "True");
-        answerList.set(1, "False");
-        answerList.set(2, "Not sure");
-        answerList.set(3, "Depends on the use case");
+        answerList2.add(0, "True");
+        answerList2.add(1, "False");
+        answerList2.add(2, "Not sure");
+        answerList2.add(3, "Depends on the use case");
         answer = 1;
 
-        flashCardLists.get(2).get(1).setQuestion(question);
-        flashCardLists.get(2).get(1).setAnswerList(answerList);
-        flashCardLists.get(2).get(1).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(2).get(1));
+            flashCard2.setQuestion(question);
+            flashCard2.setAnswer(answer);
 
         question = "3. JavaScript was created by Brendan Eich in 1995.";
-        answerList.set(0, "True");
-        answerList.set(1, "False");
-        answerList.set(2, "I don't know");
-        answerList.set(3, "It's a possibility");
+        answerList3.add(0, "True");
+        answerList3.add(1, "False");
+        answerList3.add(2, "I don't know");
+        answerList3.add(3, "It's a possibility");
         answer = 1;
 
-        flashCardLists.get(2).get(2).setQuestion(question);
-        flashCardLists.get(2).get(2).setAnswerList(answerList);
-        flashCardLists.get(2).get(2).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(2).get(2));
+            flashCard3.setQuestion(question);
+            flashCard3.setAnswer(answer);
 
         question = "4. JavaScript can be used on both the front-end and back-end of web development.";
-        answerList.set(0, "True");
-        answerList.set(1, "False");
-        answerList.set(2, "Maybe");
-        answerList.set(3, "Depends on the implementation");
+        answerList4.add(0, "True");
+        answerList4.add(1, "False");
+        answerList4.add(2, "Maybe");
+        answerList4.add(3, "Depends on the implementation");
         answer = 1;
 
-        flashCardLists.get(2).get(3).setQuestion(question);
-        flashCardLists.get(2).get(3).setAnswerList(answerList);
-        flashCardLists.get(2).get(3).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(2).get(3));
+            flashCard4.setQuestion(question);
+            flashCard4.setAnswer(answer);
 
         question = "5. JavaScript supports object-oriented programming principles.";
-        answerList.set(0, "True");
-        answerList.set(1, "False");
-        answerList.set(2, "I'm not certain");
-        answerList.set(3, "It's possible");
+        answerList5.add(0, "True");
+        answerList5.add(1, "False");
+        answerList5.add(2, "I'm not certain");
+        answerList5.add(3, "It's possible");
         answer = 0;
 
-        flashCardLists.get(2).get(4).setQuestion(question);
-        flashCardLists.get(2).get(4).setAnswerList(answerList);
-        flashCardLists.get(2).get(4).setAnswer(answer);
+            flashCard5.setQuestion(question);
+            flashCard5.setAnswer(answer);
 
-        flashCardRepository.save(flashCardLists.get(2).get(4));
+            break;
 
-        quizList.get(2).setFlashCards(flashCardLists.get(2));
-        quizRepository.save(quizList.get(2));
-
+         case 4:
         //Contents for flash cards 16 - 20.
         //Topic: Cat facts
 
-        quizList.get(3).setQuizTitle("Cat facts");
-
         question = "1. Which of the following is the scientific name for the house cat?";
-        answerList.set(0, "Felis silvestris catus");
-        answerList.set(1, "Felis domesticus");
-        answerList.set(2, "Felis catus");
-        answerList.set(3, "Felis familiaris");
+        answerList1.add(0, "Felis silvestris catus");
+        answerList1.add(1, "Felis domesticus");
+        answerList1.add(2, "Felis catus");
+        answerList1.add(3, "Felis familiaris");
         answer = 4;
 
-        flashCardLists.get(3).get(0).setQuestion(question);
-        flashCardLists.get(3).get(0).setAnswerList(answerList);
-        flashCardLists.get(3).get(0).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(3).get(0));
+                flashCard1.setQuestion(question);
+                flashCard1.setAnswer(answer);
 
         question = "2. How many toes does the average house cat have?";
-        answerList.set(0, "16");
-        answerList.set(1, "18");
-        answerList.set(2, "20");
-        answerList.set(3, "22");
+        answerList2.add(0, "16");
+        answerList2.add(1, "18");
+        answerList2.add(2, "20");
+        answerList2.add(3, "22");
         answer = 2;
 
-        flashCardLists.get(3).get(1).setQuestion(question);
-        flashCardLists.get(3).get(1).setAnswerList(answerList);
-        flashCardLists.get(3).get(1).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(3).get(1));
+                flashCard2.setQuestion(question);
+                flashCard2.setAnswer(answer);
 
         question = "3. What is the average lifespan of a house cat?";
-        answerList.set(0, "8-10 years");
-        answerList.set(1, "10-12 years");
-        answerList.set(2, "12-15 years");
-        answerList.set(3, "15-20 years");
+        answerList3.add(0, "8-10 years");
+        answerList3.add(1, "10-12 years");
+        answerList3.add(2, "12-15 years");
+        answerList3.add(3, "15-20 years");
         answer = 3;
 
-        flashCardLists.get(3).get(2).setQuestion(question);
-        flashCardLists.get(3).get(2).setAnswerList(answerList);
-        flashCardLists.get(3).get(2).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(3).get(2));
+                flashCard3.setQuestion(question);
+                flashCard3.setAnswer(answer);
 
         question = "4. Which of the following is NOT a recognized cat breed?";
-        answerList.set(0, "Siamese");
-        answerList.set(1, "Persian");
-        answerList.set(2, "Maine Coon");
-        answerList.set(3, "Furballus maximus");
+        answerList4.add(0, "Siamese");
+        answerList4.add(1, "Persian");
+        answerList4.add(2, "Maine Coon");
+        answerList4.add(3, "Furballus maximus");
         answer = 4;
 
-        flashCardLists.get(3).get(3).setQuestion(question);
-        flashCardLists.get(3).get(3).setAnswerList(answerList);
-        flashCardLists.get(3).get(3).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(3).get(3));
+                flashCard4.setQuestion(question);
+                flashCard4.setAnswer(answer);
 
         question = "5. What is the typical body temperature range for a healthy cat?";
-        answerList.set(0, "35-37°C (95-99°F)");
-        answerList.set(1, "38-40°C (100-104°F)");
-        answerList.set(2, "41-43°C (106-109°F)");
-        answerList.set(3, "44-46°C (111-115°F)");
+        answerList5.add(0, "35-37°C (95-99°F)");
+        answerList5.add(1, "38-40°C (100-104°F)");
+        answerList5.add(2, "41-43°C (106-109°F)");
+        answerList5.add(3, "44-46°C (111-115°F)");
         answer = 2;
 
-        flashCardLists.get(3).get(4).setQuestion(question);
-        flashCardLists.get(3).get(4).setAnswerList(answerList);
-        flashCardLists.get(3).get(4).setAnswer(answer);
+                flashCard5.setQuestion(question);
+                flashCard5.setAnswer(answer);
 
-        flashCardRepository.save(flashCardLists.get(3).get(4));
+                break;
 
-        quizList.get(3).setFlashCards(flashCardLists.get(3));
-
-        quizRepository.save(quizList.get(3));
-
+         case 5:
         //Populating flash cards 20 - 25.
         //Topic: Outer space
 
-        quizList.get(4).setQuizTitle("PC Components");
-
         question = "1. Which planet in our solar system is known for its prominent rings?";
-        answerList.set(0, "Mars");
-        answerList.set(1, "Jupiter");
-        answerList.set(2, "Saturn");
-        answerList.set(3, "Neptune");
+        answerList1.add(0, "Mars");
+        answerList1.add(1, "Jupiter");
+        answerList1.add(2, "Saturn");
+        answerList1.add(3, "Neptune");
         answer = 2;
 
-        flashCardLists.get(4).get(0).setQuestion(question);
-        flashCardLists.get(4).get(0).setAnswerList(answerList);
-        flashCardLists.get(4).get(0).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(4).get(0));
+             flashCard1.setQuestion(question);
+             flashCard1.setAnswer(answer);
 
         question = "2. What is the largest moon in our solar system?";
-        answerList.set(0, "Europa");
-        answerList.set(1, "Titan");
-        answerList.set(2, "Ganymede");
-        answerList.set(3, "Enceladus");
+        answerList2.add(0, "Europa");
+        answerList2.add(1, "Titan");
+        answerList2.add(2, "Ganymede");
+        answerList2.add(3, "Enceladus");
         answer = 2;
 
-        flashCardLists.get(4).get(1).setQuestion(question);
-        flashCardLists.get(4).get(1).setAnswerList(answerList);
-        flashCardLists.get(4).get(1).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(4).get(1));
+             flashCard2.setQuestion(question);
+             flashCard2.setAnswer(answer);
 
         question = "3. What is the name of the closest star to our solar system?";
-        answerList.set(0, "Proxima Centauri");
-        answerList.set(1, "Sirius");
-        answerList.set(2, "Alpha Centauri");
-        answerList.set(3, "Betelgeuse");
+        answerList3.add(0, "Proxima Centauri");
+        answerList3.add(1, "Sirius");
+        answerList3.add(2, "Alpha Centauri");
+        answerList3.add(3, "Betelgeuse");
         answer = 1;
 
-        flashCardLists.get(4).get(2).setQuestion(question);
-        flashCardLists.get(4).get(2).setAnswerList(answerList);
-        flashCardLists.get(4).get(2).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(4).get(2));
+             flashCard3.setQuestion(question);
+             flashCard3.setAnswer(answer);
 
         question = "4. What is a celestial event where the Moon passes between the Earth and the Sun?";
-        answerList.set(0, "Lunar eclipse");
-        answerList.set(1, "Solar eclipse");
-        answerList.set(2, "Asteroid collision");
-        answerList.set(3, "Meteor shower");
+        answerList4.add(0, "Lunar eclipse");
+        answerList4.add(1, "Solar eclipse");
+        answerList4.add(2, "Asteroid collision");
+        answerList4.add(3, "Meteor shower");
         answer = 1;
 
-        flashCardLists.get(4).get(3).setQuestion(question);
-        flashCardLists.get(4).get(3).setAnswerList(answerList);
-        flashCardLists.get(4).get(3).setAnswer(answer);
-
-        flashCardRepository.save(flashCardLists.get(4).get(3));
+             flashCard4.setQuestion(question);
+             flashCard4.setAnswer(answer);
 
         question = "5. Which of the following is NOT a type of galaxy?";
-        answerList.set(0, "Spiral");
-        answerList.set(1, "Elliptical");
-        answerList.set(2, "Irregular");
-        answerList.set(3, "Crescent");
+        answerList5.add(0, "Spiral");
+        answerList5.add(1, "Elliptical");
+        answerList5.add(2, "Irregular");
+        answerList5.add(3, "Crescent");
         answer = 3;
 
-        flashCardLists.get(4).get(4).setQuestion(question);
-        flashCardLists.get(4).get(4).setAnswerList(answerList);
-        flashCardLists.get(4).get(4).setAnswer(answer);
+             flashCard5.setQuestion(question);
+             flashCard5.setAnswer(answer);
 
-        flashCardRepository.save(flashCardLists.get(4).get(4));
-
-        quizList.get(4).setFlashCards(flashCardLists.get(4));
-        quizRepository.save(quizList.get(4));
-        */
+             break;
 
     }
 
