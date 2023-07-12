@@ -102,10 +102,10 @@ public class TestEntities {
         flashCardRepository.save(flashCardLists.get(0).get(1));
 
         question = "What is the primary purpose of a graphics card in a computer?";
-        answerList.set(0, "To store data");
-        answerList.set(1, "To connect peripherals");
-        answerList.set(2, "To display images and videos");
-        answerList.set(3, "To provide power to the system");
+        answerList.add(0, "To store data");
+        answerList.add(1, "To connect peripherals");
+        answerList.add(2, "To display images and videos");
+        answerList.add(3, "To provide power to the system");
         answer = 3;
 
         flashCardLists.get(0).get(2).setQuestion(question);
@@ -115,10 +115,10 @@ public class TestEntities {
         flashCardRepository.save(flashCardLists.get(0).get(2));
 
         question = "What does RAM stand for in computer terms?";
-        answerList.set(0, "Random Access Memory");
-        answerList.set(1, "Read-Only Memory");
-        answerList.set(2, "Central Processing Unit");
-        answerList.set(3, "Graphics Processing Unit");
+        answerList.add(0, "Random Access Memory");
+        answerList.add(1, "Read-Only Memory");
+        answerList.add(2, "Central Processing Unit");
+        answerList.add(3, "Graphics Processing Unit");
         answer = 1;
 
         flashCardLists.get(0).get(3).setQuestion(question);
@@ -128,10 +128,10 @@ public class TestEntities {
         flashCardRepository.save(flashCardLists.get(0).get(3));
 
         question = "Which component of a computer is responsible for long-term storage of data and programs?";
-        answerList.set(0, "CPU");
-        answerList.set(1, "RAM");
-        answerList.set(2, "SSD");
-        answerList.set(3, "Power supply");
+        answerList.add(0, "CPU");
+        answerList.add(1, "RAM");
+        answerList.add(2, "SSD");
+        answerList.add(3, "Power supply");
         answer = 3;
 
         flashCardLists.get(0).get(4).setQuestion(question);

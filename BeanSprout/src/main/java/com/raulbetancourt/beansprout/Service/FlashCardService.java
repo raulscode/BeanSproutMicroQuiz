@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 //Flash card service class.
@@ -62,7 +63,26 @@ public class FlashCardService {
     }
 
 
+    public FlashCard createExampleCard(String question, List<String> answerList, Integer answer){
 
+        boolean success = false;
+
+        FlashCard flashCard = new FlashCard();
+
+        flashCard.setQuestion(question);
+
+        flashCard.setAnswerList(answerList);
+
+        flashCard.setAnswerList(answerList);
+        flashCard.setAnswer(answer);
+
+        flashCardRepository.save(flashCard);
+
+        success = true;
+
+        return flashCard;
+
+    }
 
 
 }
