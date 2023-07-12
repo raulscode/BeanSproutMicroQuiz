@@ -13,7 +13,6 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer quizID;
     String quizTitle;
-    //List<Integer> cardList = new ArrayList<>();
 
     //Establishes relationship with the FlashCard entity.
     //They have a join table called "card_list" that associates the quizzes' IDs and the flash cards' IDs.
