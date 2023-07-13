@@ -90,14 +90,6 @@ class BeanSproutApplicationTests {
 
 		assertEquals(roleID, roleRepository.findByRoleName("Example7").getRoleID());
 
-		//List<Role> rolesList = new ArrayList<>();
-		//rolesList.add(role);
-
-		//user.setRoles(rolesList);
-		//userRepository.save(user);
-
-		//assertSame(user.getRoles(), roleRepository.findRoleByUser(user.getUserID()));
-
 		//Test flashcard service class
 		List<String> stringList = new ArrayList<>();
 
