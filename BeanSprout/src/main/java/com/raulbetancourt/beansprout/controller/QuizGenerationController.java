@@ -22,13 +22,13 @@ public class QuizGenerationController {
 
     //Used to show the page where you can generate the quiz.
     //Now this page is handled by user login controller.
-    /*
+
     @GetMapping("/generatequiz")
     public String showQuizGenerator(){
 
         return "quiz_generator";
     }
-     */
+
 
     //Grabs the info inputted by user to generate the quiz,
     //which is mostly at this point just a title and id with an empty flashcard arraylist.
