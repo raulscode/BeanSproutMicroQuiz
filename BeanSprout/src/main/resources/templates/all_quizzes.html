@@ -35,11 +35,16 @@
 
     }
 
+    #loadButton {
+
+    margin: 10px;
+    }
+
 </style>
 <body>
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i></i> BeanSprout MicroQuiz</a>
+    <a class="navbar-brand" href="index"><i class="fas fa-seedling"></i></i> BeanSprout MicroQuiz</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,7 +52,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
             </li>
             <!--Quiz DropDown Starts-->
             <li class="nav-item dropdown">
@@ -91,6 +96,7 @@
 
 
 <div class="quizListArea">
+    <p><a id="loadButton" class="btn btn-warning btn-lg" th:href="@{/loadexamples}" role="button">Empty Page? Click to Load Example Database!</a></p>
     <ul class="quizLinkList" th:each="quiz: ${quizList}">
         <li>
                 <div class="quizTitleContainer">

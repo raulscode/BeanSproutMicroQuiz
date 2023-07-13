@@ -3,6 +3,7 @@ package com.raulbetancourt.beansprout.Service;
 import com.raulbetancourt.beansprout.configuration.UserDetailHandler;
 import com.raulbetancourt.beansprout.dataservice.UserDTO;
 import com.raulbetancourt.beansprout.model.Role;
+import com.raulbetancourt.beansprout.repository.RoleRepository;
 import com.raulbetancourt.beansprout.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -17,8 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.raulbetancourt.beansprout.model.User;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,6 +33,9 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
     private RoleService roleService;
 
     @Autowired
@@ -39,7 +45,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        User user = userRepository.findByUserID(Long.parseLong(userName));
+        User user = userRepository.findByUsername(userName);
 
         if (user == null)
         {
@@ -62,20 +68,33 @@ public class UserServiceImpl implements UserService {
 
     //Map models
     @Transactional
-    public void createUserMap(UserDTO userDTO)
-    {
+    public void createUserMap(UserDTO userDTO) {
 
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         User user = modelMapper.map(userDTO, User.class);
 
-        //Set role for user
-        user.setRoles(Arrays.asList(roleService.findRoleByRoleName("ROLE_USER")));
+        //Encode password
         user.setPassword(encryption.encode(user.getPassword()));
 
+        //Assign role
+        Role role = roleRepository.findByRoleName("ROLE_USER");
+
+        //Make sure role exists
+        if (role == null) {
+            role = checkRole();
+        }
+        user.setRoles(Arrays.asList(roleService.findRoleByRoleName("ROLE_USER")));
         userRepository.save(user);
 
+    }
+
+        private Role checkRole(){
+
+            Role role = new Role();
+            role.setRoleName("ROLE_USER");
+            return roleRepository.save(role);
     }
 
     public User findByUserName(String username)
@@ -84,5 +103,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
 
     }
+
 
 }

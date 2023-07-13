@@ -28,4 +28,11 @@ public class SuccessPageController {
 
     }
 
+    //Just a controller for the about page.
+    @GetMapping("/about")
+    public String getAbout(Model model){
+
+        return "about";
+    }
+
 }

@@ -10,35 +10,10 @@
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--Bootstap Stuff Ends-->
-    <title>Your Quiz Grade</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Sign Up</title>
 </head>
-
-<style>
-
-.resultBody {
-
-    box-shadow: 0px 10px 20px grey;
-    max-width: 50%;
-    margin: 10px;
-    padding: 10px;
-
-}
-
-h1 {
- margin: 10px;
-}
-
-.listButton {
-
-    margin: 10px;
-
-}
-
-</style>
-
 <body>
-
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index"><i class="fas fa-seedling"></i></i> BeanSprout MicroQuiz</a>
@@ -71,6 +46,7 @@ h1 {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="flashcardlist">See All FlashCards</a>
+                    <a class="dropdown-item" href="reviewcards">Review FlashCards</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="flashcard?randomcard=true">View Random FlashCard</a>
                 </div>
@@ -88,28 +64,32 @@ h1 {
     </div>
 </nav>
 <!--Navigation Ends-->
+<!--Main Area Begins-->
+<div class="mainArea">
+<h2>Sign Up As a New User</h2>
+<form method="POST" action="#" th:action="@{/usersignup}" th:object="${userDTO}" id="signupForm">
+   <p><label>User Name:</label>
+       <input type="text" th:field="*{userName}" /></p>
+    <p>
+        <label>Password:</label>
+        <input type="text" th:field="*{password}" /></p>
+    </p>
+    <p>
+        <label>Retype Password to Confirm:</label>
+        <input type="text" th:field="*{secondPassword}" /></p>
+    </p>
 
-<!--Main area begins-->
-<div class="mainContainer">
+    <input id="submit" type="submit" class="btn btn-primary" name="submit" />
 
-    <div class="resultBody">
-        <p>Your grade is: </p>
-    <p id="gradeArea" th:text="${quizGrade} + '%'"></p>
-        <div id="gradeResponse"></div>
-    </div>
-    <div class="listButton">
-        <button type="button" class="btn btn-success" onclick="window.location.href='http://localhost:8080/quizlist';">Back to List of Quizzes</button>
-    </div>
-
+</form>
 </div>
-<!--Main area ends-->
+<!--Main Area Ends-->
 
-<script src="/GradeReaction.js"></script>
-
+<!--Footer Begins-->
+<!--Footer Ends-->
+<!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
 </body>
 </html>

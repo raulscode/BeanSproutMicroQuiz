@@ -10,8 +10,14 @@
   <!-- Font Awesome Stylesheet -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!--Bootstap Stuff Ends-->
-  <title>Edit or Delete Flash Card</title>
+  <link rel="stylesheet" href="/styles.css">
+  <title>About</title>
 </head>
+<style>
+  .aboutContainer {
+    width: 60%;
+  }
+</style>
 <body>
 <!--Navigation Starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -64,29 +70,26 @@
 </nav>
 <!--Navigation Ends-->
 <!--Main Area Begins-->
-
-<form method="POST" th:action="@{/editflashcard}">
-  <h2 th:text="'Card ID: ' + ${flashcard.getCardID()}"></h2>
-  <p><label for="question">Edit or Input New Question: </label></p>
-  <input id="question" type="text" name="question" th:value="${flashcard.getQuestion()}"/>
-  <ul th:each="answers, count : ${flashcard.getAnswerList()}">
-    <li>
-      <label th:attr="for='option' + ${count.index+1}" th:text="'Question #' + ${count.index+1}"></label>
-      <input th:value="${answers}" type="text" th:attr="id='option' + ${count.index+1}" name="answerList">
-    </li>
+<div class="mainArea">
+<div class="aboutContainer">
+  <div class="jumbotron">
+  <h1>About and Thanks</h1>
+  <p>Hello, I'm Raul and this is the BeanSprout MicroQuiz site, where you can make quizzes and flash cards that are automatically generated out of those quizzes!</p>
+    <p>This is the front end. There's some stuff going on in the backend of this site, so here is a diagram of the database for demonstration purposes:</p>
+    <img src="MySQL_diagram.png">
+<p margin="10px"></p>
+  <p>I'd like to give special thanks to:</p>
+  <ul>
+  <li>⭐ The instruction team at Per Scholas, including Igor and Erica. Thank you for providing the extensive instruction, GLabs, and documentation that helped me learn how to put together an app like this.</li>
+  <li>⭐ My cohort peers, who were there learning with me every day.</li>
+    <li>⭐ My parents and my sister.</li>
+    <li>⭐ <a href="https://www.baeldung.com/">Baeldung</a>, but basically also the internet in general.</li>
   </ul>
 
-  <label for="answer">Which is the right answer? Input the number of the correct answer below: </label>
-  <input th:value="${flashcard.getAnswer()}" id="answer" type="number" name="answer" min="1" max="4"/>
-  <input type="checkbox" id="deletecard" name="deletecard" />
-  <label for="deletecard">Just delete this card. (This will delete the card forever, never to be seen again.)</label>
+    </div>
+  </div>
 
-  <h2 th:text="${quizName}"></h2>
-
-  <button type="submit">Submit</button>
-
-</form>
-
+</div>
 
 <!--Main Area Ends-->
 

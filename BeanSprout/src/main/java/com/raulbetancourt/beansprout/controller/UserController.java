@@ -5,6 +5,7 @@ import com.raulbetancourt.beansprout.dataservice.UserDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -27,24 +28,23 @@ public class UserController {
     private UserServiceImpl userDetailsService;
 
     @Autowired
-    public UserController(UserServiceImpl userDetailsService)
-    {
+    public UserController(UserServiceImpl userDetailsService) {
+
         this.userDetailsService = userDetailsService;
     }
 
-    //user sign up page controller
+    @GetMapping("/")
+    private String getIndex()
+    {
+        return "index";
+    }
+
+
     @GetMapping("/signup")
     public String signUp(Model model)
     {
         model.addAttribute("userDTO", new UserDTO());
         return "signup";
-    }
-
-    //User login controller
-    @GetMapping("/generatequiz")
-    private String loginRedirect()
-    {
-        return "redirect:/login";
     }
 
     @PostMapping("/usersignup")
@@ -66,12 +66,20 @@ public class UserController {
         return "redirect:/successpage";
     }
 
-    //Displays login page
     @GetMapping("/login")
-    public String getLogin()
+    public String getLoginPage()
     {
+
         return "login";
     }
 
+
+    //Getting error with this mapping, don't know why. Doesn't matter where I point it, it seems.
+    @RequestMapping("/home")
+    public String getHomePage()
+    {
+
+        return "index";
+    }
 
 }
