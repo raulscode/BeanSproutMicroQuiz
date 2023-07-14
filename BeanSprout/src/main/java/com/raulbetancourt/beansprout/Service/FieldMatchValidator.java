@@ -5,7 +5,6 @@ import org.springframework.beans.BeanWrapperImpl;
 import jakarta.validation.*;
 
 //Fieldmatching validator
-//Similar to GLAB spring security lab
 public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Object> {
 
     private String fieldOne;

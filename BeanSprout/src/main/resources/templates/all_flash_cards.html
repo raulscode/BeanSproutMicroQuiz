@@ -49,6 +49,12 @@
 
     }
 
+    #loadButton {
+
+    margin: 20px 10px 10px 50px;
+
+    }
+
 </style>
 <body>
 <!--Navigation Starts-->
@@ -103,6 +109,7 @@
 <!--Main Area Begins-->
 
 <div class="flashCardListArea">
+    <p><a id="loadButton" class="btn btn-warning btn-lg" th:href="@{/loadexamples}" role="button">Empty Page? Click to Load Example Database!</a></p>
     <ul th:each="flashcard: ${flashCardList}">
         <li>
 

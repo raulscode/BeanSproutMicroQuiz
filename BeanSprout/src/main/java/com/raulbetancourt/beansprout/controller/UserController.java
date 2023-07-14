@@ -75,7 +75,7 @@ public class UserController {
 
 
     //Getting error with this mapping, don't know why. Doesn't matter where I point it, it seems.
-    @RequestMapping("/home")
+    @RequestMapping(value = { "/home","/index" } )
     public String getHomePage()
     {
 

@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,13 +54,33 @@ public class LoadTestCardsController {
         redirectAttributes.addFlashAttribute("operation",operation);
         redirectAttributes.addFlashAttribute("entitytype",entityType);
 
+        makeDB("beansproutdb");
         quizService.createExampleModels();
-
-
 
         return "redirect:/successpage";
 
     }
+
+    public void makeDB(String dbName) {
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","password");
+            Statement statement = connection.createStatement();
+
+            String query = "CREATE DATABASE " + dbName;
+            statement.executeUpdate(query);
+
+            System.out.println("Database " + dbName + "created!");
+            }
+        catch (Exception e) {
+
+            System.out.println(e);
+
+        }
+
+    }
+
+
 
 
 }

@@ -17,6 +17,18 @@
 
     margin: 10px;
   }
+
+  .note {
+
+  font-style: italic;
+
+  }
+
+  .noteList {
+
+  list-style: inside;
+
+  }
 </style>
 <body>
 <!--Navigation Starts-->
@@ -75,12 +87,22 @@
   <p><a class="btn btn-primary btn-lg" th:href="@{/quizlist}" role="button">Check Out Quizzes!</a></p>
   <p><a class="btn btn-success btn-lg" th:href="@{/generatequiz}" role="button">Make Your Own Quiz!</a></p>
   <p><a class="btn btn-warning btn-lg" th:href="@{/loadexamples}" role="button">Load Example Database!</a></p>
-  <p>(Load example database first if testing.)</p>
+  <div class="note">
+    <p><strong>Load example database first for demo.</strong> Note that the example loading class:</p>
+    <ul class="noteList">
+  <li>Assumes you have a MySQL server running on localhost:3306.</li>
+  <li>Assumes username is "root" and password is "password".</li>
+  <li>Will attempt to create a DB named beansproutdb.</li>
+  <li>(Database username and password can be changed in method makeDB() of LoadTestCardsController class and application.properties.)</li>
+    </ul>
+  </div>
 </div>
 
 <!--Login Area Begins-->
 <div class="loginArea">
-<p>Please Log In To See Full Site Functionality</p>
+<!--<p>Please Log In To See Full Site Functionality</p>-->
+  <p><em>Security on most pages is currently disabled for demo purposes (site functions can be used without login).</em></p>
+  <h3>User Login</h3>
 <p class="signUpLink"><a th:href="@{/signup}">Make Account</a></p>
 <form action="#" th:action="@{/login}" method="post">
   <div class = "loginSection">
